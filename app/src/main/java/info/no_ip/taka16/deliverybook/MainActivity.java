@@ -42,6 +42,7 @@ public class MainActivity extends ListActivity {
         // Instantiate the list of samples.
         mSamples = new Sample[]{
                 new Sample(R.string.title_screen_slide, ScreenSlideActivity.class),
+                new Sample(R.string.title_edit_client, EditClientActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,

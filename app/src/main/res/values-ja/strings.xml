@@ -7,16 +7,16 @@
     <!-- Actions -->
     <string name="action_toggle">Toggle indicator</string>
     <string name="action_add_item">Add item</string>
-    <string name="action_remove_item">Remove item</string>
-    <string name="action_previous">Previous</string>
-    <string name="action_next">Next</string>
+    <string name="action_remove_item">削除</string>
+    <string name="action_previous">前へ</string>
+    <string name="action_next">次へ</string>
     <string name="action_finish">Finish</string>
 
-    <!-- Edit Client -->
-    <string name="title_edit_client">Edit Client</string>
-    <string name="edit_client_name_box">Name</string>
-    <string name="edit_client_address_box">Address</string>
-    <string name="edit_finish_client_button">Finish</string>
+    <!-- Register Client -->
+    <string name="title_edit_client">お客様登録フォーム</string>
+    <string name="edit_client_name_box">名前</string>
+    <string name="edit_client_address_box">住所</string>
+    <string name="edit_finish_client_button">登録</string>
 
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>

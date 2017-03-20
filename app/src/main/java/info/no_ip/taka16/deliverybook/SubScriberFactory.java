@@ -2,7 +2,6 @@ package info.no_ip.taka16.deliverybook;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SubScriberFactory {
