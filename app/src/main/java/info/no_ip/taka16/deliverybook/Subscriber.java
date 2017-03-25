@@ -1,46 +1,63 @@
 package info.no_ip.taka16.deliverybook;
 
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+
+@DatabaseTable(tableName = "Subscriber")
 public class Subscriber {
 
+    @DatabaseField(generatedId = true)
+    private Integer id;
 
-    private String mName = "";
-    private String mDisplayName;
-    private String mAddress = "";
-    private String mDisplayAddress;
+    @DatabaseField
+    private String name;
+
+    @DatabaseField
+    private String displayName;
+
+    @DatabaseField
+    private String address;
+
+    @DatabaseField
+    private String displayAddress;
+
+    public Subscriber(){
+
+    }
 
     public Subscriber(String name, String displayName, String address, String displayAddress){
         // TODO: null check
-        //mName = name;
-        setName(name);
-        mDisplayName = displayName;
-        mDisplayAddress = displayAddress;
-        mAddress = address;
+        this.name = name;
+        this.displayName = displayName;
+        this.address = address;
+        this.displayAddress = displayAddress;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
-    public void setName(String mName) {
-        if (mName == null){
+    public void setName(String name) {
+        if (name == null){
             throw new NullPointerException("Name not acceptable null.");
         }
-        this.mName = mName;
+        this.name = name;
     }
 
     public String getDisplayName(){
-        if (mDisplayName == null || "".equals(mDisplayName)){
-            return mName;
+        if (displayName == null || "".equals(displayName)){
+            return name;
         }
-        return mDisplayName;
+        return displayName;
     }
 
     public void setDisplayName(String displayName){
-        mDisplayName = displayName;
+        this.displayName = displayName;
     }
 
     public String getDisplayAddress(){
-        return mAddress;
+        return address;
     }
 }

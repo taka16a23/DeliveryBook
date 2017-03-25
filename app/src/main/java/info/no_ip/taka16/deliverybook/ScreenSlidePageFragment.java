@@ -19,18 +19,22 @@ public class ScreenSlidePageFragment extends Fragment {
      */
     private int mPageNumber;
 
+    private Subscriber subscriber;
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static ScreenSlidePageFragment create(int pageNumber) {
+    public static ScreenSlidePageFragment create(Subscriber subscriber, int pageNumber) {
         ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
+        args.putString("name", subscriber.getDisplayName());
+        args.putString("address", subscriber.getDisplayAddress());
         fragment.setArguments(args);
         return fragment;
     }
 
     public ScreenSlidePageFragment() {
+
     }
 
     @Override
@@ -47,10 +51,10 @@ public class ScreenSlidePageFragment extends Fragment {
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
 
         // Set the title view to show the page number.
-        Subscriber subscriber = SubScriberFactory.getSubscriber(mPageNumber);
-        ((TextView) rootView.findViewById(R.id.display_name)).setText(subscriber.getDisplayName());
+        // Subscriber subscriber = SubScriberFactory.getSubscriber(mPageNumber);
+        ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
         // Set address
-        ((TextView) rootView.findViewById(R.id.display_address)).setText(subscriber.getDisplayAddress());
+        ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));
         return rootView;
     }
 

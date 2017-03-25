@@ -28,5 +28,12 @@ public class EditClientActivity extends Activity {
         Toast.makeText(this, address, Toast.LENGTH_SHORT).show();
         Log.d("Debug", address);
 
+        SubscriberDbTable dbTable = new SubscriberDbTable(this);
+        Subscriber subscriber = new Subscriber(name, name, address, address);
+        dbTable.save(subscriber);
+
+        // clear form
+        nameView.setText("");
+        addressView.setText("");
     }
 }
