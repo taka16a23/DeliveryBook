@@ -26,4 +26,7 @@ public class Position {
         this.currentPosition = currentPosition;
     }
 
+    public String toString(){
+        return (currentPosition + 1) + " / " + maxPosition;
+    }
 }

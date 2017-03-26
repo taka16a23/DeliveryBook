@@ -20,10 +20,7 @@ public class DeliveringPageFragment extends Fragment {
     public static final String ARG_NAME = "name";
     public static final String ARG_ADDRESS = "address";
 
-    /**
-     * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
-     */
-
+    private Position mPosition;
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
@@ -36,11 +33,16 @@ public class DeliveringPageFragment extends Fragment {
         args.putString(ARG_ADDRESS, subscriber.getDisplayAddress());
 
         fragment.setArguments(args);
+        fragment.setPosition(position);
         return fragment;
     }
 
     public DeliveringPageFragment() {
 
+    }
+
+    public void setPosition(Position position){
+        this.mPosition = position;
     }
 
     @Override
@@ -56,6 +58,7 @@ public class DeliveringPageFragment extends Fragment {
                 .inflate(R.layout.fragment_delivering_page, container, false);
 
         // Set the title view to show the page number.
+        ((TextView) rootView.findViewById(R.id.delivering_position)).setText(mPosition.toString());
         ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
         // Set address
         ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));

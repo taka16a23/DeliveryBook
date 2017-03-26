@@ -13,25 +13,23 @@ import info.no_ip.taka16.deliverybook.subscribers.SubscribersBook;
 
 public class DeliveringPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
-    private Position mPosition;
     private List<Subscriber> subscribers;
 
     public DeliveringPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.context = context;
         subscribers = new SubscribersBook(this.context).findAll();
-        this.mPosition = new Position(subscribers.size());
     }
 
     @Override
     public Fragment getItem(int position) {
-        mPosition.setCurrentPosition(position);
-        return DeliveringPageFragment.create(subscribers.get(position), mPosition);
+        return DeliveringPageFragment.create(
+                subscribers.get(position), new Position(getCount(), position));
     }
 
     @Override
     public int getCount() {
-        return mPosition.getMaxPosition();
+        return subscribers.size();
     }
 
 }
