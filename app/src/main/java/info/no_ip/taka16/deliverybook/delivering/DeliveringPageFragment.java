@@ -15,23 +15,26 @@ public class DeliveringPageFragment extends Fragment {
     /**
      * The argument key for the page number this fragment represents.
      */
-    public static final String ARG_PAGE = "page";
+    public static final String ARG_CURRENT_PAGE = "currentPosition";
+    public static final String ARG_MAX_PAGE = "maxPosition";
+    public static final String ARG_NAME = "name";
+    public static final String ARG_ADDRESS = "address";
 
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
-    private int mPageNumber;
 
-    private Subscriber subscriber;
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static DeliveringPageFragment create(Subscriber subscriber, int pageNumber) {
+    public static DeliveringPageFragment create(Subscriber subscriber, Position position) {
         DeliveringPageFragment fragment = new DeliveringPageFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, pageNumber);
-        args.putString("name", subscriber.getDisplayName());
-        args.putString("address", subscriber.getDisplayAddress());
+        args.putInt(ARG_CURRENT_PAGE, position.getCurrentPosition());
+        args.putInt(ARG_MAX_PAGE, position.getCurrentPosition());
+        args.putString(ARG_NAME, subscriber.getDisplayName());
+        args.putString(ARG_ADDRESS, subscriber.getDisplayAddress());
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,7 +46,6 @@ public class DeliveringPageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPageNumber = getArguments().getInt(ARG_PAGE);
     }
 
     @Override
@@ -54,7 +56,6 @@ public class DeliveringPageFragment extends Fragment {
                 .inflate(R.layout.fragment_delivering_page, container, false);
 
         // Set the title view to show the page number.
-        // Subscriber subscriber = SubScriberFactory.getSubscriber(mPageNumber);
         ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
         // Set address
         ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));
@@ -65,6 +66,6 @@ public class DeliveringPageFragment extends Fragment {
      * Returns the page number represented by this fragment object.
      */
     public int getPageNumber() {
-        return mPageNumber;
+        return getArguments().getInt(ARG_CURRENT_PAGE);
     }
 }
