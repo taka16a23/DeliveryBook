@@ -4,6 +4,8 @@ package info.no_ip.taka16.deliverybook.subscribers;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.Date;
+
 /*
    Entity
  */
@@ -12,18 +14,18 @@ public class Subscriber {
 
     @DatabaseField(generatedId = true)
     private Integer id;
-
     @DatabaseField
     private String name;
-
     @DatabaseField
     private String displayName;
-
     @DatabaseField
     private String address;
-
     @DatabaseField
     private String displayAddress;
+    @DatabaseField
+    private Date created;
+    @DatabaseField
+    private Date lastModified;
 
     public Subscriber(){
 
@@ -35,6 +37,7 @@ public class Subscriber {
         this.displayName = displayName;
         this.address = address;
         this.displayAddress = displayAddress;
+        this.created = new Date(System.currentTimeMillis());
     }
 
     public int getId(){
@@ -52,18 +55,30 @@ public class Subscriber {
         this.name = name;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         if (displayName == null || "".equals(displayName)){
             return name;
         }
         return displayName;
     }
 
-    public void setDisplayName(String displayName){
+    public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
 
-    public String getDisplayAddress(){
+    public String getDisplayAddress() {
         return address;
+    }
+
+    public Date getCreated(){
+        return created;
+    }
+
+    public void setLastModified(Date date){
+        this.lastModified = date;
+    }
+
+    public Date getLastModified(){
+        return lastModified;
     }
 }

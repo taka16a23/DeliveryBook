@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
 
+import java.util.Date;
 import java.util.List;
 
 import info.no_ip.taka16.deliverybook.db.DatabaseHelper;
@@ -21,6 +22,7 @@ public class SubscribersBook {
     }
 
     public void save(Subscriber subscriber){
+        subscriber.setLastModified(new Date(System.currentTimeMillis()));
         DatabaseHelper helper = new DatabaseHelper(context);
         try {
             Dao<Subscriber, Integer> dao = helper.getDao(Subscriber.class);
