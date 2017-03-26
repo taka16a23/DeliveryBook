@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +9,8 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -26,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTable(connectionSource, Subscriber.class);
         } catch (SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "データベースを作成できませんでした", e);
+            Log.e(DatabaseHelper.class.getName(), "Failed create database.", e);
         }
     }
 

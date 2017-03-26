@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
+import info.no_ip.taka16.deliverybook.register_activity.EditSubscriberActivity;
+
 public class MainActivity extends ListActivity {
     /**
      * This class describes an individual sample (the sample title, and the activity class that
@@ -41,8 +44,8 @@ public class MainActivity extends ListActivity {
 
         // Instantiate the list of samples.
         mSamples = new Sample[]{
-                new Sample(R.string.title_screen_slide, ScreenSlideActivity.class),
-                new Sample(R.string.title_edit_client, EditClientActivity.class),
+                new Sample(R.string.title_start_delivery, DeliveringActivity.class),
+                new Sample(R.string.title_edit_client, EditSubscriberActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,

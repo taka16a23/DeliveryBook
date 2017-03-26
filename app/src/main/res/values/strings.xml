@@ -1,8 +1,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Titles -->
-    <string name="app_name">Animations Demo</string>
+    <string name="app_name">Root Book</string>
     <string name="title_screen_slide">Screen Slide</string>
+    <string name="title_start_delivery">Start Delivery</string>
 
     <!-- Actions -->
     <string name="action_toggle">Toggle indicator</string>
@@ -17,6 +18,7 @@
     <string name="edit_client_name_box">Name</string>
     <string name="edit_client_address_box">Address</string>
     <string name="edit_finish_client_button">Finish</string>
+    <string name="edit_save_notifier">Saved</string>
 
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>

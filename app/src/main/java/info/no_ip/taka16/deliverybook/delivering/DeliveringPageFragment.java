@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.delivering;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import info.no_ip.taka16.deliverybook.R;
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
-public class ScreenSlidePageFragment extends Fragment {
+
+public class DeliveringPageFragment extends Fragment {
     /**
      * The argument key for the page number this fragment represents.
      */
@@ -23,8 +26,8 @@ public class ScreenSlidePageFragment extends Fragment {
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static ScreenSlidePageFragment create(Subscriber subscriber, int pageNumber) {
-        ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
+    public static DeliveringPageFragment create(Subscriber subscriber, int pageNumber) {
+        DeliveringPageFragment fragment = new DeliveringPageFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         args.putString("name", subscriber.getDisplayName());
@@ -33,7 +36,7 @@ public class ScreenSlidePageFragment extends Fragment {
         return fragment;
     }
 
-    public ScreenSlidePageFragment() {
+    public DeliveringPageFragment() {
 
     }
 
@@ -48,7 +51,7 @@ public class ScreenSlidePageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout containing a title and body text.
         ViewGroup rootView = (ViewGroup) inflater
-                .inflate(R.layout.fragment_screen_slide_page, container, false);
+                .inflate(R.layout.fragment_delivering_page, container, false);
 
         // Set the title view to show the page number.
         // Subscriber subscriber = SubScriberFactory.getSubscriber(mPageNumber);

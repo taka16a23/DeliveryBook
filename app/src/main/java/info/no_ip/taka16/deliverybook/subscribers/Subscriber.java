@@ -1,10 +1,12 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.subscribers;
 
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-
+/*
+   Entity
+ */
 @DatabaseTable(tableName = "Subscriber")
 public class Subscriber {
 
@@ -33,6 +35,10 @@ public class Subscriber {
         this.displayName = displayName;
         this.address = address;
         this.displayAddress = displayAddress;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public String getName() {

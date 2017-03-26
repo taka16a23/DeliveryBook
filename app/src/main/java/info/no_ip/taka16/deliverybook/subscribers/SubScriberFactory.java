@@ -1,8 +1,10 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.subscribers;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
 public class SubScriberFactory {
 

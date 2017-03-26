@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.delivering;
 
 
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import info.no_ip.taka16.deliverybook.MainActivity;
+import info.no_ip.taka16.deliverybook.R;
+
 /**
  * Demonstrates a "screen-slide" animation using a {@link ViewPager}. Because {@link ViewPager}
  * automatically plays such an animation when calling {@link ViewPager#setCurrentItem(int)}, there
@@ -19,9 +22,9 @@ import android.view.MenuItem;
  * animating the current screen out (to the left) and the next screen in (from the right). The
  * reverse animation is played when the user presses the "previous" button.</p>
  *
- * @see ScreenSlidePageFragment
+ * @see DeliveringPageFragment
  */
-public class ScreenSlideActivity extends FragmentActivity {
+public class DeliveringActivity extends FragmentActivity {
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -37,11 +40,11 @@ public class ScreenSlideActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slide);
+        setContentView(R.layout.activity_delivering_page);
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(this, getFragmentManager());
+        mPagerAdapter = new DeliveringPagerAdapter(this, getFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -66,7 +69,7 @@ public class ScreenSlideActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.activity_screen_slide, menu);
+        getMenuInflater().inflate(R.menu.activity_delivering, menu);
 
         menu.findItem(R.id.action_previous).setEnabled(hasPrevious());
 

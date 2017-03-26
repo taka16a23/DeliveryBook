@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook;
+package info.no_ip.taka16.deliverybook.delivering;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -7,23 +7,26 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
+import info.no_ip.taka16.deliverybook.subscribers.SubscribersBook;
 
-public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+
+public class DeliveringPagerAdapter extends FragmentStatePagerAdapter {
 //    private static final int NUM_PAGES = SubScriberFactory.countSubscribers();
     private Context context;
     private int num_pages;
     private List<Subscriber> subscribers;
 
-    public ScreenSlidePagerAdapter(Context context, FragmentManager fm) {
+    public DeliveringPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.context = context;
-        subscribers = new SubscriberDbTable(this.context).findAll();
+        subscribers = new SubscribersBook(this.context).findAll();
         num_pages = subscribers.size();
     }
 
     @Override
     public Fragment getItem(int position) {
-        return ScreenSlidePageFragment.create(subscribers.get(position), position);
+        return DeliveringPageFragment.create(subscribers.get(position), position);
     }
 
     @Override
