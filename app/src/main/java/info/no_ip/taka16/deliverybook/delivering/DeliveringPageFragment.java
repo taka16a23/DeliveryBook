@@ -1,17 +1,20 @@
 package info.no_ip.taka16.deliverybook.delivering;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
 
-public class DeliveringPageFragment extends Fragment {
+public class DeliveringPageFragment extends Fragment implements View.OnClickListener {
     /**
      * The argument key for the page number this fragment represents.
      */
@@ -20,6 +23,7 @@ public class DeliveringPageFragment extends Fragment {
     public static final String ARG_NAME = "name";
     public static final String ARG_ADDRESS = "address";
 
+    private TextView addressView;
     private Position mPosition;
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
@@ -62,6 +66,9 @@ public class DeliveringPageFragment extends Fragment {
         ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
         // Set address
         ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));
+
+        addressView = (TextView)rootView.findViewById(R.id.display_address);
+        addressView.setOnClickListener(this);
         return rootView;
     }
 
@@ -70,5 +77,18 @@ public class DeliveringPageFragment extends Fragment {
      */
     public int getPageNumber() {
         return getArguments().getInt(ARG_CURRENT_PAGE);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() != R.id.display_address){
+            return;
+        }
+        // TODO: show direction from here
+        // TODO: other method to embed map
+        String addressText = addressView.getText().toString();
+        Uri gmmIntentUri = Uri.parse("http://maps.google.co.jp/maps?q=" + addressText);
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        startActivity(mapIntent);
     }
 }
