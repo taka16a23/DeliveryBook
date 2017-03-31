@@ -4,6 +4,7 @@
     <string name="app_name">Root Book</string>
     <string name="title_screen_slide">Screen Slide</string>
     <string name="title_start_delivery">Start Delivery</string>
+    <string name="title_list">List</string>
 
     <!-- Actions -->
     <string name="action_toggle">Toggle indicator</string>
@@ -22,5 +23,27 @@
 
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>
+
+
+
+    <array name="main_items">
+        <item>List - Basic Drag and Swipe</item>
+    </array>
+
+    <array name="dummy_items">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>eleven</item>
+        <item>twelve</item>
+        <item>13</item>
+    </array>
 
 </resources>
