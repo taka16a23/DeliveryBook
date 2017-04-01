@@ -58,6 +58,26 @@ public class ListSubscribersActivity extends Activity {
                         subscribers.remove(fromPos);
                         adapter.notifyItemRemoved(fromPos);
                     }
+
+                    @Override
+                    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+                        if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
+                            ListSubscribersAdapter.ViewHolder subscriberViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
+                            subscriberViewHolder.onItemSelected();
+                        }
+                        super.onSelectedChanged(viewHolder, actionState);
+                    }
+
+                    @Override
+                    public void clearView(RecyclerView cecyclerView, RecyclerView.ViewHolder viewHolder) {
+                        super.clearView(recyclerView, viewHolder);
+
+                        if (viewHolder instanceof ListSubscribersAdapter.ViewHolder) {
+                            // Tell the view holder it's time to restore the idle state
+                            ListSubscribersAdapter.ViewHolder itemViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
+                            itemViewHolder.onItemClear();
+                        }
+                    }
                 });
         itemDecor.attachToRecyclerView(recyclerView);
     }

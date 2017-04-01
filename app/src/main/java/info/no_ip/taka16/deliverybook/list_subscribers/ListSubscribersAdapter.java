@@ -1,9 +1,13 @@
 package info.no_ip.taka16.deliverybook.list_subscribers;
 
+import android.graphics.Color;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -22,11 +26,22 @@ public class ListSubscribersAdapter extends RecyclerView.Adapter<ListSubscribers
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView textView;
+        public ImageView handleView;
 
         public ViewHolder(View v) {
             super(v);
             textView = (TextView)v.findViewById(R.id.line_subscriber_name);
+            handleView = (ImageView)v.findViewById(R.id.line_handle);
         }
+
+        public void onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY);
+        }
+
+        public void onItemClear() {
+            itemView.setBackgroundColor(0);
+        }
+
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -52,6 +67,15 @@ public class ListSubscribersAdapter extends RecyclerView.Adapter<ListSubscribers
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.textView.setText(subscribers.get(position).getName());
+
+//        holder.handleView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+//
+//                }
+//            }
+//        })
     }
 
     // Return the size of your dataset (invoked by the layout manager)
