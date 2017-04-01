@@ -6,55 +6,23 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import info.no_ip.taka16.deliverybook.R;
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
+import info.no_ip.taka16.deliverybook.subscribers.SubscribersBook;
 
 
 public class ListSubscribersActivity extends Activity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-
-    // ArrayListで定義
-    private List<Integer> itemImages;
-    private List<String> itemNames;
-    private List<String> itemEmails;
-
-    private static final String[] names = {
-            "Yuka",
-            "Kurumi",
-            "Mai",
-            "Miki",
-            "Saya",
-            "Toko",
-            "Nagi",
-            "Yuyu",
-            "Yumiko",
-            "Katakuriko"
-    };
-
-    // それぞれの画像ファイルをdarawableに入れます
-    // ArrayListのInteger型
-    private static final Integer[] photos = {
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample,
-            R.drawable.sample
-    };
+    private List<Subscriber> subscribers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_subscribers);
+        setContentView(R.layout.activity_subscribers_list);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -67,18 +35,10 @@ public class ListSubscribersActivity extends Activity {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        // 配列をArrayListにコピー
-        itemNames = new ArrayList<String>(Arrays.asList(names));
-        itemImages = new ArrayList<Integer>(Arrays.asList(photos));
-
-        itemEmails = new ArrayList<String>();
-        for(int i=0; i<itemNames.size() ;i++ ){
-            String str = itemNames.get(i)+"@gmail.com";
-            itemEmails.add(str);
-        }
-
         // specify an adapter (see also next example)
-        adapter = new MyAdapter(itemImages, itemNames, itemEmails);
+        SubscribersBook book = new SubscribersBook(this);
+        subscribers = book.findAll();
+        adapter = new ListSubscribersAdapter(subscribers);
         recyclerView.setAdapter(adapter);
 
         // ItemTouchHelper
@@ -95,10 +55,7 @@ public class ListSubscribersActivity extends Activity {
                     @Override
                     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                         final int fromPos = viewHolder.getAdapterPosition();
-                        itemImages.remove(fromPos);
-                        itemNames.remove(fromPos);
-                        itemEmails.remove(fromPos);
-
+                        subscribers.remove(fromPos);
                         adapter.notifyItemRemoved(fromPos);
                     }
                 });

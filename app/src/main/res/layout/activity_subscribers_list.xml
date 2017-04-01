@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="20dp"
-    android:background="#fac"
     >
 
 <!-- A RecyclerView with some commonly used attributes -->

@@ -4,47 +4,34 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import info.no_ip.taka16.deliverybook.R;
+import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
-/**
- * Created by root on 17/03/31.
- */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class ListSubscribersAdapter extends RecyclerView.Adapter<ListSubscribersAdapter.ViewHolder> {
 
-    private List<Integer> iImages;
-    private List<String> iNames;
-    private List<String> iEmails;
+    private List<Subscriber> subscribers;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public ImageView imageView;
         public TextView textView;
-        public TextView emailView;
 
         public ViewHolder(View v) {
             super(v);
-            imageView = (ImageView)v.findViewById(R.id.image_view);
-            textView = (TextView)v.findViewById(R.id.text_view);
-            emailView = (TextView)v.findViewById(R.id.email_view);
-
+            textView = (TextView)v.findViewById(R.id.line_subscriber_name);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Integer> itemImages, List<String> itemNames, List<String> itemEmails) {
-        this.iImages = itemImages;
-        this.iNames = itemNames;
-        this.iEmails = itemEmails;
-
+    public ListSubscribersAdapter(List<Subscriber> subscribers) {
+        this.subscribers = subscribers;
     }
 
     // Create new views (invoked by the layout manager)
@@ -52,11 +39,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_text_view, parent, false);
+                .inflate(R.layout.line_subscribers, parent, false);
 
         // set the view's size, margins, paddings and layout parameters
-
-
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
@@ -66,14 +51,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.imageView.setImageResource(iImages.get(position));
-        holder.textView.setText(iNames.get(position));
-        holder.emailView.setText(iEmails.get(position));
+        holder.textView.setText(subscribers.get(position).getName());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return iNames.size();
+        return subscribers.size();
     }
 }
