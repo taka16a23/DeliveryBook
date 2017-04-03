@@ -27,8 +27,11 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".register_activity.EditSubscriberActivity"
-            android:parentActivityName=".MainActivity"
-            ></activity>
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".list_subscribers.ListSubscribersActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

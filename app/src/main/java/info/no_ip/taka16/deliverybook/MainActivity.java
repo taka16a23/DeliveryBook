@@ -9,7 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
+import info.no_ip.taka16.deliverybook.list_subscribers.ListSubscribersActivity;
 import info.no_ip.taka16.deliverybook.register_activity.EditSubscriberActivity;
+
+
 
 public class MainActivity extends ListActivity {
     /**
@@ -18,10 +21,11 @@ public class MainActivity extends ListActivity {
      */
     private class Sample {
         private CharSequence title;
-        private Class<? extends Activity> activityClass;
+        private Class activityOrFragment;
+        // TODO: temporary implemented
 
-        public Sample(int titleResId, Class<? extends Activity> activityClass) {
-            this.activityClass = activityClass;
+        public Sample(int titleResId, Class activityClass) {
+            this.activityOrFragment = activityClass;
             this.title = getResources().getString(titleResId);
         }
 
@@ -29,8 +33,11 @@ public class MainActivity extends ListActivity {
         public String toString() {
             return title.toString();
         }
-    }
 
+        public void startActivity(Activity activity) {
+            activity.startActivity(new Intent(activity, activityOrFragment));
+        }
+    }
     /**
      * The collection of all samples in the app. This gets instantiated in {@link
      * #onCreate(Bundle)} because the {@link Sample} constructor needs access to {@link
@@ -46,6 +53,7 @@ public class MainActivity extends ListActivity {
         mSamples = new Sample[]{
                 new Sample(R.string.title_start_delivery, DeliveringActivity.class),
                 new Sample(R.string.title_edit_client, EditSubscriberActivity.class),
+                new Sample(R.string.title_list, ListSubscribersActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,
@@ -57,6 +65,6 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView listView, View view, int position, long id) {
         // Launch the sample associated with this list position.
-        startActivity(new Intent(MainActivity.this, mSamples[position].activityClass));
+        mSamples[position].startActivity(this);
     }
 }

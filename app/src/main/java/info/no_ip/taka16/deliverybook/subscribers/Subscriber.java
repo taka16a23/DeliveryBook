@@ -11,6 +11,7 @@ import java.util.Date;
  */
 @DatabaseTable(tableName = "Subscriber")
 public class Subscriber {
+    public static final String ORDER_NUMBER = "order_number";
 
     @DatabaseField(generatedId = true)
     private Integer id;
@@ -81,4 +82,5 @@ public class Subscriber {
     public Date getLastModified(){
         return lastModified;
     }
+
 }
