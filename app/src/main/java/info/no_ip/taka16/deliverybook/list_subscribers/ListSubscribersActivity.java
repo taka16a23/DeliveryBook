@@ -15,7 +15,7 @@ import info.no_ip.taka16.deliverybook.subscribers.SubscribersBook;
 
 public class ListSubscribersActivity extends Activity {
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private ListSubscribersAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<Subscriber> subscribers;
 
@@ -38,47 +38,11 @@ public class ListSubscribersActivity extends Activity {
         // specify an adapter (see also next example)
         SubscribersBook book = new SubscribersBook(this);
         subscribers = book.findAll();
+
         adapter = new ListSubscribersAdapter(subscribers);
         recyclerView.setAdapter(adapter);
 
-        // ItemTouchHelper
-        ItemTouchHelper itemDecor = new ItemTouchHelper(
-                new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.RIGHT) {
-                    @Override
-                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                        final int fromPos = viewHolder.getAdapterPosition();
-                        final int toPos = target.getAdapterPosition();
-                        adapter.notifyItemMoved(fromPos, toPos);
-                        return true;
-                    }
-
-                    @Override
-                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                        final int fromPos = viewHolder.getAdapterPosition();
-                        subscribers.remove(fromPos);
-                        adapter.notifyItemRemoved(fromPos);
-                    }
-
-                    @Override
-                    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
-                        if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-                            ListSubscribersAdapter.ViewHolder subscriberViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
-                            subscriberViewHolder.onItemSelected();
-                        }
-                        super.onSelectedChanged(viewHolder, actionState);
-                    }
-
-                    @Override
-                    public void clearView(RecyclerView cecyclerView, RecyclerView.ViewHolder viewHolder) {
-                        super.clearView(recyclerView, viewHolder);
-
-                        if (viewHolder instanceof ListSubscribersAdapter.ViewHolder) {
-                            // Tell the view holder it's time to restore the idle state
-                            ListSubscribersAdapter.ViewHolder itemViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
-                            itemViewHolder.onItemClear();
-                        }
-                    }
-                });
+        ItemTouchHelper itemDecor = new ItemTouchHelper(new SimpleItemTouchHelperCallback(adapter));
         itemDecor.attachToRecyclerView(recyclerView);
     }
 }
