@@ -10,25 +10,30 @@ import java.util.Collection;
 import info.no_ip.taka16.deliverybook.frame.Frame;
 
 
-@DatabaseTable(tableName="BookTable")
+@DatabaseTable(tableName=Book.TABLE_NAME)
 public class Book {
-    @DatabaseField(generatedId = true)
-    private int id;
-    @DatabaseField(unique = true)
-    private String name;
-    @ForeignCollectionField
-    private Collection<Frame> roots = new ArrayList<Frame>();
+    public static final String TABLE_NAME = "BookTable";
+    public static final String BOOK_ID = "bookId";
+    public static final String AREA_NAME_COLUMN = "areaName";
+    public static final String ROOTS_COLUMN = "roots";
+
+    @DatabaseField(generatedId = true, columnName = BOOK_ID)
+    public int id;
+    @DatabaseField(unique = true, columnName=AREA_NAME_COLUMN)
+    public String areaName;
+    @ForeignCollectionField(columnName=ROOTS_COLUMN)
+    public Collection<Frame> roots = new ArrayList<Frame>();
 
     public int getId(){
         return this.id;
     }
 
-    public String getName(){
-        return this.name;
+    public String getAreaName(){
+        return this.areaName;
     }
 
     public void rename(String name){
-        this.name = name;
+        this.areaName = name;
     }
 
     public void insert(Frame frame){
@@ -58,6 +63,4 @@ public class Book {
     public int size(){
         return this.roots.size();
     }
-
-
 }

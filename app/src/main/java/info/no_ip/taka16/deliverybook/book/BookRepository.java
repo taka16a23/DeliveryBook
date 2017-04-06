@@ -76,7 +76,16 @@ public class BookRepository {
         return null;
     }
 
-//    public Root getBook(String areaName){}
+    public Book getBook(String areaName){
+        try {
+            return getDao().queryBuilder().where().eq(Book.AREA_NAME_COLUMN, areaName).queryForFirst();
+        } catch (SQLException e){
+            Log.e(LOG_TAG, "has Exception", e);
+        } finally {
+            closeDatabase();
+        }
+        return null;
+    }
 
     public boolean hasBook(int id){
         try {
