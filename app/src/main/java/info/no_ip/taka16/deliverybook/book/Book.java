@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook.root;
+package info.no_ip.taka16.deliverybook.book;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
@@ -10,8 +10,8 @@ import java.util.Collection;
 import info.no_ip.taka16.deliverybook.frame.Frame;
 
 
-@DatabaseTable(tableName="RootTable")
-public class Root {
+@DatabaseTable(tableName="BookTable")
+public class Book {
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField(unique = true)

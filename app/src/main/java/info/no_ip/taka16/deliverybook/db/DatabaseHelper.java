@@ -11,7 +11,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 import info.no_ip.taka16.deliverybook.frame.Frame;
-import info.no_ip.taka16.deliverybook.root.Root;
+import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
 
@@ -30,7 +30,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTable(connectionSource, Subscriber.class);
             TableUtils.createTable(connectionSource, Frame.class);
-            TableUtils.createTable(connectionSource, Root.class);
+            TableUtils.createTable(connectionSource, Book.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Failed create database.", e);
         }

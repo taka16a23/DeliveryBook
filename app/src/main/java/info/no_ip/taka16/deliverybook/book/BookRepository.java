@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook.root;
+package info.no_ip.taka16.deliverybook.book;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,15 +12,15 @@ import java.util.List;
 import info.no_ip.taka16.deliverybook.db.DatabaseHelper;
 
 
-public class RootRepository {
+public class BookRepository {
 
-    private static final String LOG_TAG = info.no_ip.taka16.deliverybook.root.Root.class.getSimpleName();
-    private static Class daoClass = Root.class;
+    private static final String LOG_TAG = info.no_ip.taka16.deliverybook.book.Book.class.getSimpleName();
+    private static Class daoClass = Book.class;
 
     private Context context;
     private DatabaseHelper helper;
 
-    public RootRepository(Context context){
+    public BookRepository(Context context){
         this.context = context;
     }
 
@@ -31,11 +31,11 @@ public class RootRepository {
         return this.helper.isOpen();
     }
 
-    private Dao<Root, Integer> getDao() throws SQLException {
+    private Dao<Book, Integer> getDao() throws SQLException {
         if(!isOpenedDatabase()){
             this.helper = new DatabaseHelper(context);
         }
-        return helper.getDao(Root.class);
+        return helper.getDao(Book.class);
     }
 
     private void closeDatabase(){
@@ -44,9 +44,9 @@ public class RootRepository {
         }
     }
 
-    public void register(Root root){
+    public void register(Book book){
         try {
-            getDao().createOrUpdate(root);
+            getDao().createOrUpdate(book);
         } catch (SQLException e){
             Log.e(LOG_TAG, "has Exception", e);
         } finally {
@@ -54,9 +54,9 @@ public class RootRepository {
         }
     }
 
-    public int unregister(Root root){
+    public int unregister(Book book){
         try {
-            return getDao().delete(root);
+            return getDao().delete(book);
         } catch (SQLException e){
             Log.e(LOG_TAG, "has Exception", e);
         } finally {
@@ -65,7 +65,7 @@ public class RootRepository {
         return 0;
     }
 
-    public Root getRoot(int id){
+    public Book getBook(int id){
         try {
             return getDao().queryForId(id);
         } catch (SQLException e){
@@ -76,9 +76,9 @@ public class RootRepository {
         return null;
     }
 
-//    public Root getRoot(String areaName){}
+//    public Root getBook(String areaName){}
 
-    public boolean hasRoot(int id){
+    public boolean hasBook(int id){
         try {
             return getDao().idExists(id);
         } catch (SQLException e){
@@ -90,28 +90,28 @@ public class RootRepository {
 
     }
 
-    public boolean hasRoot(Root root){
-        return hasRoot(root.getId());
+    public boolean hasBook(Book book){
+        return hasBook(book.getId());
     }
 
-    public List<Root> listRoot(int[] ids){
+    public List<Book> listBook(int[] ids){
         // FIXME: occur fail if not exists id.
-        List<Root> roots = new ArrayList<Root>();
+        List<Book> books = new ArrayList<Book>();
         try {
-            Dao<Root, Integer> dao = getDao();
+            Dao<Book, Integer> dao = getDao();
             for (int id : ids) {
-                roots.add(dao.queryForId(id));
+                books.add(dao.queryForId(id));
             }
-            return roots;
+            return books;
         } catch (SQLException e){
             Log.e(LOG_TAG, "has Exception", e);
         } finally {
             closeDatabase();
         }
-        return roots;
+        return books;
     }
 
-    public List<Root> findAll(){
+    public List<Book> findAll(){
         try{
             return getDao().queryForAll();
         } catch (SQLException e){
