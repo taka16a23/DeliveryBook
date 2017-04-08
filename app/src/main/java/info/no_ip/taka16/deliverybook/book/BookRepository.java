@@ -39,9 +39,9 @@ public class BookRepository {
     }
 
     private void closeDatabase(){
-        if(isOpenedDatabase()){
-            helper.close();
-        }
+//        if(isOpenedDatabase()){
+//            helper.close();
+//        }
     }
 
     public void register(Book book){
@@ -101,6 +101,15 @@ public class BookRepository {
 
     public boolean hasBook(Book book){
         return hasBook(book.getId());
+    }
+
+    public boolean hasBook(String areaName){
+        try {
+            return getDao().queryBuilder().where().eq(Book.AREA_NAME_COLUMN, areaName).countOf() != 0;
+        } catch (SQLException e) {
+            Log.e(LOG_TAG, "has Exception", e);
+        }
+        return false;
     }
 
     public List<Book> listBook(int[] ids){

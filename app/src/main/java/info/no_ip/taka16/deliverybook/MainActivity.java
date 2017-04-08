@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
 import info.no_ip.taka16.deliverybook.list_subscribers.ListSubscribersActivity;
-import info.no_ip.taka16.deliverybook.register_activity.EditSubscriberActivity;
-
+import info.no_ip.taka16.deliverybook.register_activity.FrameFormActivity;
+import info.no_ip.taka16.deliverybook.simple_recyclerview.FrameListActivity;
 
 
 public class MainActivity extends ListActivity {
@@ -52,8 +52,8 @@ public class MainActivity extends ListActivity {
         // Instantiate the list of samples.
         mSamples = new Sample[]{
                 new Sample(R.string.title_start_delivery, DeliveringActivity.class),
-                new Sample(R.string.title_edit_client, EditSubscriberActivity.class),
-                new Sample(R.string.title_list, ListSubscribersActivity.class),
+                new Sample(R.string.title_edit_client, FrameFormActivity.class),
+                new Sample(R.string.title_list, FrameListActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,

@@ -12,7 +12,6 @@ import java.sql.SQLException;
 
 import info.no_ip.taka16.deliverybook.frame.Frame;
 import info.no_ip.taka16.deliverybook.book.Book;
-import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
@@ -28,7 +27,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, Subscriber.class);
             TableUtils.createTable(connectionSource, Frame.class);
             TableUtils.createTable(connectionSource, Book.class);
         } catch (SQLException e) {

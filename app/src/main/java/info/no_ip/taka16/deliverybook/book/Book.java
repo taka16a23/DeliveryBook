@@ -1,9 +1,13 @@
 package info.no_ip.taka16.deliverybook.book;
 
+import android.util.Log;
+
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,14 +19,21 @@ public class Book {
     public static final String TABLE_NAME = "BookTable";
     public static final String BOOK_ID = "bookId";
     public static final String AREA_NAME_COLUMN = "areaName";
-    public static final String ROOTS_COLUMN = "roots";
+//    public static final String ROOTS_COLUMN = "roots";
 
     @DatabaseField(generatedId = true, columnName = BOOK_ID)
     public int id;
     @DatabaseField(unique = true, columnName=AREA_NAME_COLUMN)
     public String areaName;
-    @ForeignCollectionField(columnName=ROOTS_COLUMN)
-    public Collection<Frame> roots = new ArrayList<Frame>();
+    @ForeignCollectionField
+    public ForeignCollection<Frame> frames;
+
+    public Book(){
+    }
+
+    public Book(String areaName){
+        this.areaName = areaName;
+    }
 
     public int getId(){
         return this.id;
@@ -37,30 +48,30 @@ public class Book {
     }
 
     public void insert(Frame frame){
-        this.roots.add(frame);
+        this.frames.add(frame);
     }
 
     public void insert(int index, Frame frame){
-        ((ArrayList<Frame>)this.roots).add(index, frame);
+        this.frames.add(frame);
     }
 
     public Frame getFrame(int index){
-        return ((ArrayList<Frame>)this.roots).get(index);
+        return new ArrayList<Frame>(this.frames).get(index);
     }
 
     public void remove(int index){
-        ((ArrayList<Frame>)this.roots).remove(index);
+        this.remove(this.getFrame(index));
     }
 
     public void remove(Frame frame){
-        ((ArrayList<Frame>)this.roots).remove(frame);
+        this.frames.remove(frame);
     }
 
     public void move(int fromPos, int toPos){
-        ((ArrayList<Frame>)this.roots).add(toPos, ((ArrayList<Frame>)this.roots).remove(fromPos));
+//        ((ArrayList<Frame>)this.frames).add(toPos, ((ArrayList<Frame>)this.frames).remove(fromPos));
     }
 
     public int size(){
-        return this.roots.size();
+        return this.frames.size();
     }
 }

@@ -26,10 +26,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".register_activity.EditSubscriberActivity"
+        <activity android:name=".register_activity.FrameFormActivity"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".list_subscribers.ListSubscribersActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".simple_recyclerview.FrameListActivity"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>
