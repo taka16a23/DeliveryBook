@@ -16,17 +16,17 @@ import info.no_ip.taka16.deliverybook.frame.Frame;
 
 @DatabaseTable(tableName=Book.TABLE_NAME)
 public class Book {
-    public static final String TABLE_NAME = "BookTable";
-    public static final String BOOK_ID = "bookId";
-    public static final String AREA_NAME_COLUMN = "areaName";
+    static final String TABLE_NAME = "BookTable";
+    private static final String BOOK_ID = "bookId";
+    static final String AREA_NAME_COLUMN = "areaName";
 //    public static final String ROOTS_COLUMN = "roots";
 
     @DatabaseField(generatedId = true, columnName = BOOK_ID)
     public int id;
     @DatabaseField(unique = true, columnName=AREA_NAME_COLUMN)
-    public String areaName;
+    private String areaName;
     @ForeignCollectionField
-    public ForeignCollection<Frame> frames;
+    private ForeignCollection<Frame> frames;
 
     public Book(){
     }

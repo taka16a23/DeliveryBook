@@ -48,12 +48,13 @@ public class FrameFormActivity extends Activity {
         bookRepository.register(book);
 
         Book book2 = bookRepository.getBook("11area");
-        book2.remove(0);
+//        book2.remove(5);
         bookRepository.register(book2);
+//        frameRepository.unregister(book2.getFrame(0));
         Book book3 = bookRepository.getBook("11area");
         for (int i = 0; i<book3.size(); i++){
             Frame tmpframe = book3.getFrame(i);
-            Log.d(FrameFormActivity.class.getSimpleName(), tmpframe.getName() + ":" + tmpframe.getAddress());
+            Log.d(FrameFormActivity.class.getSimpleName(), tmpframe.getId() + ":" + tmpframe.getName() + ":" + tmpframe.getAddress());
         }
 
         Log.d(FrameFormActivity.class.getSimpleName(), " Saved" + name + " " + address);

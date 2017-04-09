@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
-import info.no_ip.taka16.deliverybook.list_subscribers.ListSubscribersActivity;
 import info.no_ip.taka16.deliverybook.register_activity.FrameFormActivity;
 import info.no_ip.taka16.deliverybook.simple_recyclerview.FrameListActivity;
 
