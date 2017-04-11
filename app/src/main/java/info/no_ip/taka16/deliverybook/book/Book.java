@@ -1,77 +1,61 @@
 package info.no_ip.taka16.deliverybook.book;
 
+import android.content.Context;
 import android.util.Log;
 
-import com.j256.ormlite.dao.ForeignCollection;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
-import com.j256.ormlite.table.DatabaseTable;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import info.no_ip.taka16.deliverybook.frame.Frame;
+import info.no_ip.taka16.deliverybook.frame.FrameRepository;
+import info.no_ip.taka16.deliverybook.root.Root;
 
 
-@DatabaseTable(tableName=Book.TABLE_NAME)
 public class Book {
-    static final String TABLE_NAME = "BookTable";
-    private static final String BOOK_ID = "bookId";
-    static final String AREA_NAME_COLUMN = "areaName";
-//    public static final String ROOTS_COLUMN = "roots";
 
-    @DatabaseField(generatedId = true, columnName = BOOK_ID)
-    public int id;
-    @DatabaseField(unique = true, columnName=AREA_NAME_COLUMN)
-    private String areaName;
-    @ForeignCollectionField
-    private ForeignCollection<Frame> frames;
+    private Root root;
+    private FrameRepository frameRepository;
 
-    public Book(){
-    }
-
-    public Book(String areaName){
-        this.areaName = areaName;
-    }
-
-    public int getId(){
-        return this.id;
+    public Book(Context context, Root root){
+        this.root = root;
+        this.frameRepository = new FrameRepository(context);
     }
 
     public String getAreaName(){
-        return this.areaName;
+        return this.root.getAreaName();
     }
 
     public void rename(String name){
-        this.areaName = name;
+        this.root.setAreaName(name);
     }
 
-    public void insert(Frame frame){
-        this.frames.add(frame);
+    public void insert(Frame frame) {
+        this.root.add(frame.getId());
     }
 
     public void insert(int index, Frame frame){
-        this.frames.add(frame);
+        this.root.add(index, frame.getId());
     }
 
     public Frame getFrame(int index){
-        return new ArrayList<Frame>(this.frames).get(index);
+        int id = this.root.get(index);
+        return this.frameRepository.getFrame(id);
     }
 
     public void remove(int index){
-        this.remove(this.getFrame(index));
+        this.root.remove(index);
     }
 
     public void remove(Frame frame){
-        this.frames.remove(frame);
+        int id = frame.getId();
+
     }
 
     public void move(int fromPos, int toPos){
-//        ((ArrayList<Frame>)this.frames).add(toPos, ((ArrayList<Frame>)this.frames).remove(fromPos));
+        this.root.move(fromPos, toPos);
     }
 
     public int size(){
-        return this.frames.size();
+        return this.root.size();
     }
 }

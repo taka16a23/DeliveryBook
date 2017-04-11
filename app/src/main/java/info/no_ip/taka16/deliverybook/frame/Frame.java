@@ -9,12 +9,10 @@ import info.no_ip.taka16.deliverybook.book.Book;
 
 
 @DatabaseTable(tableName="FrameTable")
-public class Frame implements Comparable<Frame>{
+public class Frame {
 
     @DatabaseField(generatedId = true)
     private Integer id;
-    @DatabaseField(defaultValue="-1")
-    private Integer rootNumber;
     @DatabaseField
     private String name;
     @DatabaseField
@@ -40,14 +38,6 @@ public class Frame implements Comparable<Frame>{
 
     public int getId(){
         return id;
-    }
-
-    public int getRootNumber(){
-        return this.rootNumber;
-    }
-
-    public void setRootNumber(int rootNumber){
-        this.rootNumber = rootNumber;
     }
 
     public void setName(String name){
@@ -100,17 +90,4 @@ public class Frame implements Comparable<Frame>{
         return lastModified;
     }
 
-    public int compareTo(Frame frame){
-        if (frame == null) {
-            throw new NullPointerException();
-        }
-        int result = this.getRootNumber() - frame.getRootNumber();
-        if (result > 0){
-            return 1;
-        } else if(result < 0){
-            return -1;
-        } else {
-            return 0;
-        }
-    }
 }

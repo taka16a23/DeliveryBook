@@ -4,11 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-/**
- * Created by root on 17/04/09.
- */
 
 public class Root {
 
@@ -20,6 +16,7 @@ public class Root {
         this.context = context;
         this.areaName = areaName;
         this.root = root;
+        reStoreRoot();
     }
 
     public Root(Context context, String areaName){
@@ -28,6 +25,10 @@ public class Root {
 
     public String getAreaName(){
         return this.areaName;
+    }
+
+    public void setAreaName(String name){
+        this.areaName = name;
     }
 
     private void storeRoot(){
@@ -59,6 +60,11 @@ public class Root {
         storeRoot();
     }
 
+    public void remove(int id){
+        this.root.remove(id);
+        storeRoot();
+    }
+
     public int size(){
         return this.root.size();
     }
@@ -75,5 +81,6 @@ public class Root {
         } else {
             this.root.add(toPos -1, this.root.remove(fromPos));
         }
+        storeRoot();
     };
 }

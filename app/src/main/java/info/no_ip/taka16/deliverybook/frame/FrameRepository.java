@@ -47,9 +47,6 @@ public class FrameRepository {
 
     public void register(Frame frame){
         frame.setLastModified(new Date(System.currentTimeMillis()));
-        if(frame.getRootNumber() == -1){
-            frame.setRootNumber(findAll().size() + 1);
-        }
         try {
             getDao().createOrUpdate(frame);
         } catch (SQLException e){
