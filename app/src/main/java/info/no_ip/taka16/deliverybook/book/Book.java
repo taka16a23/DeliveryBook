@@ -47,6 +47,7 @@ public class Book {
     }
 
     public void remove(Frame frame){
+        // TODO:
         int id = frame.getId();
 
     }
