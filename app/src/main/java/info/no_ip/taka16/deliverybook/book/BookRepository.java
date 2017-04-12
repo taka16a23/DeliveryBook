@@ -23,13 +23,6 @@ public class BookRepository {
         this.rootRepository = new RootRepository(context);
     }
 
-    public void register(Book book){
-    }
-
-    public void unregister(Book book){
-
-    }
-
     public Book getBook(String areaName){
         Root root = rootRepository.getRoot(areaName);
         return new Book(context, root);
