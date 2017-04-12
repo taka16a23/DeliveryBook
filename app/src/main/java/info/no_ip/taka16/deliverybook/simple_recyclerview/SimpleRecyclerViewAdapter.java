@@ -54,4 +54,12 @@ public class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<SimpleRecycl
     public int getItemCount(){
         return book.size();
     }
+
+    public void remove(int position){
+        book.remove(position);
+    }
+
+    public void move(int fromPos, int toPos){
+        book.move(fromPos, toPos);
+    }
 }
