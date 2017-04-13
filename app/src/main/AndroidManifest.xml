@@ -27,14 +27,15 @@
         </activity>
         <activity
             android:name=".register_activity.FrameFormActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".list_subscribers.ListSubscribersActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".simple_recyclerview.FrameListActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".book.BookActivity"></activity>
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".book.BookActivity" />
+        <activity android:name=".book.BookListActivity"></activity>
     </application>
 
 </manifest>
