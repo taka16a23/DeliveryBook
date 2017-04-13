@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="info.no_ip.taka16.deliverybook">
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -26,12 +25,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".register_activity.EditSubscriberActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".list_subscribers.ListSubscribersActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        <activity
+            android:name=".register_activity.FrameFormActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".list_subscribers.ListSubscribersActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".simple_recyclerview.FrameListActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".book.BookActivity" />
+        <activity android:name=".book.BookListActivity"></activity>
     </application>
 
 </manifest>

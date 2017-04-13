@@ -1,4 +1,8 @@
-package info.no_ip.taka16.deliverybook.list_subscribers;
+package info.no_ip.taka16.deliverybook.simple_recyclerview;
+
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -6,9 +10,9 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
-    ListSubscribersAdapter mAdapter;
+    SimpleRecyclerViewAdapter mAdapter;
 
-    public SimpleItemTouchHelperCallback(ListSubscribersAdapter adapter){
+    public SimpleItemTouchHelperCallback(SimpleRecyclerViewAdapter adapter){
         mAdapter = adapter;
     }
 
@@ -39,8 +43,8 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-            ListSubscribersAdapter.ViewHolder subscriberViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
-            subscriberViewHolder.onItemSelected();
+            SimpleRecyclerViewAdapter.ViewHolder recyclerViewHolder = (SimpleRecyclerViewAdapter.ViewHolder) viewHolder;
+            recyclerViewHolder.onItemSelected();
         }
         super.onSelectedChanged(viewHolder, actionState);
     }
@@ -49,9 +53,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
 
-        if (viewHolder instanceof ListSubscribersAdapter.ViewHolder) {
+        if (viewHolder instanceof SimpleRecyclerViewAdapter.ViewHolder) {
             // Tell the view holder it's time to restore the idle state
-            ListSubscribersAdapter.ViewHolder itemViewHolder = (ListSubscribersAdapter.ViewHolder) viewHolder;
+            SimpleRecyclerViewAdapter.ViewHolder itemViewHolder = (SimpleRecyclerViewAdapter.ViewHolder) viewHolder;
             itemViewHolder.onItemClear();
         }
     }

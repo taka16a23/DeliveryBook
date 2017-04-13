@@ -1,17 +1,15 @@
-package info.no_ip.taka16.deliverybook.subscribers;
-
+package info.no_ip.taka16.deliverybook.frame;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
 
-/*
-   Entity
- */
-@DatabaseTable(tableName = "Subscriber")
-public class Subscriber {
-    public static final String ORDER_NUMBER = "order_number";
+import info.no_ip.taka16.deliverybook.book.Book;
+
+
+@DatabaseTable(tableName="FrameTable")
+public class Frame {
 
     @DatabaseField(generatedId = true)
     private Integer id;
@@ -27,33 +25,27 @@ public class Subscriber {
     private Date created;
     @DatabaseField
     private Date lastModified;
+    @DatabaseField(foreign=true, foreignAutoRefresh = true)
+    protected Book book;
 
-    public Subscriber(){
-
+    public Frame(){
+        this.created = new Date(System.currentTimeMillis());
     }
 
-    public Subscriber(String name, String displayName, String address, String displayAddress){
-        // TODO: null check
-        this.name = name;
-        this.displayName = displayName;
-        this.address = address;
-        this.displayAddress = displayAddress;
-        this.created = new Date(System.currentTimeMillis());
+    public void setBook(Book book){
+        this.book = book;
     }
 
     public int getId(){
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setName(String name){
+        this.name = name;
     }
 
-    public void setName(String name) {
-        if (name == null){
-            throw new NullPointerException("Name not acceptable null.");
-        }
-        this.name = name;
+    public String getName(){
+        return this.name;
     }
 
     public String getDisplayName() {
@@ -67,8 +59,23 @@ public class Subscriber {
         this.displayName = displayName;
     }
 
-    public String getDisplayAddress() {
-        return address;
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+
+    public void setDisplayAddress(String displayAddress){
+        this.displayAddress = displayAddress;
+    }
+
+    public String getDisplayAddress(){
+        if(displayAddress == null || "".equals(displayAddress)){
+            return address;
+        }
+        return this.displayAddress;
     }
 
     public Date getCreated(){

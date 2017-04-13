@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
-import info.no_ip.taka16.deliverybook.subscribers.Subscriber;
+import info.no_ip.taka16.deliverybook.frame.Frame;
 
 
 public class DeliveringPageFragment extends Fragment implements View.OnClickListener {
@@ -28,13 +27,13 @@ public class DeliveringPageFragment extends Fragment implements View.OnClickList
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static DeliveringPageFragment create(Subscriber subscriber, Position position) {
+    public static DeliveringPageFragment create(Frame frame, Position position) {
         DeliveringPageFragment fragment = new DeliveringPageFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_CURRENT_PAGE, position.getCurrentPosition());
         args.putInt(ARG_MAX_PAGE, position.getCurrentPosition());
-        args.putString(ARG_NAME, subscriber.getDisplayName());
-        args.putString(ARG_ADDRESS, subscriber.getDisplayAddress());
+        args.putString(ARG_NAME, frame.getDisplayName());
+        args.putString(ARG_ADDRESS, frame.getDisplayAddress());
 
         fragment.setArguments(args);
         fragment.setPosition(position);
