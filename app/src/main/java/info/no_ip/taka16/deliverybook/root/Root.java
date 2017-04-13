@@ -74,6 +74,7 @@ public class Root {
     }
 
     public void move(int fromPos, int toPos){
+        // FIXME: failed move on min fromPos to toPos will not sorted.
         if (fromPos == toPos ){
             return;
         } else if(toPos < fromPos) {
@@ -81,6 +82,5 @@ public class Root {
         } else {
             this.root.add(toPos -1, this.root.remove(fromPos));
         }
-        storeRoot();
     };
 }

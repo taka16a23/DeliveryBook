@@ -5,8 +5,6 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
 
-import info.no_ip.taka16.deliverybook.book.Book;
-
 
 @DatabaseTable(tableName="FrameTable")
 public class Frame {
@@ -25,15 +23,9 @@ public class Frame {
     private Date created;
     @DatabaseField
     private Date lastModified;
-    @DatabaseField(foreign=true, foreignAutoRefresh = true)
-    protected Book book;
 
     public Frame(){
         this.created = new Date(System.currentTimeMillis());
-    }
-
-    public void setBook(Book book){
-        this.book = book;
     }
 
     public int getId(){

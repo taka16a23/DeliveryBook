@@ -30,6 +30,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         final int fromPos = viewHolder.getAdapterPosition();
         final int toPos = target.getAdapterPosition();
+        mAdapter.move(fromPos, toPos);
         mAdapter.notifyItemMoved(fromPos, toPos);
         return true;
     }
@@ -37,6 +38,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         final int fromPos = viewHolder.getAdapterPosition();
+        mAdapter.remove(fromPos);
         mAdapter.notifyItemRemoved(fromPos);
     }
 
