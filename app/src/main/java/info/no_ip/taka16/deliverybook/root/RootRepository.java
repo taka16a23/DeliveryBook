@@ -2,13 +2,10 @@ package info.no_ip.taka16.deliverybook.root;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
-
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
+import org.apache.commons.io.FilenameUtils;
+
 
 public class RootRepository {
 
@@ -19,29 +16,17 @@ public class RootRepository {
     }
 
     public Root getRoot(String areaName){
-
-        SharedPreferences sharedPreferences = context.getSharedPreferences(areaName, Context.MODE_PRIVATE);
-        Map<String, ?> allEntries = sharedPreferences.getAll();
-        Set<String> set = allEntries.keySet();
-        for (String s : set) {
-            Log.d("debug", s);
-        }
-        Log.d("debug", "hello");
         return new Root(context, areaName);
     }
 
     public ArrayList<String> listAreaNames(){
         ArrayList<String> results = new ArrayList<String>();
-        SharedPreferences sharedPreferences = this.context.getSharedPreferences("xxx", Context.MODE_PRIVATE);
-        Map<String, ?> allEntries = sharedPreferences.getAll();
-        Set<String> set = allEntries.keySet();
-        for (String s : set) {
-            Log.d("debug", s);
+        File prefsdir = new File(context.getApplicationInfo().dataDir,"shared_prefs");
+        if(prefsdir.exists() && prefsdir.isDirectory()){
+            for (String prefFileName : prefsdir.list()) {
+                results.add(FilenameUtils.removeExtension(prefFileName));
+            }
         }
-        for(Map.Entry<String, ?> entry : allEntries.entrySet()){
-            results.add(entry.getKey());
-        }
-        Log.d("debug", String.valueOf(results.size()));
         return results;
     }
 }
