@@ -26,7 +26,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".register_activity.FrameFormActivity"
+            android:name=".frame.FrameFormActivity"
             android:parentActivityName=".MainActivity" />
 
         <activity

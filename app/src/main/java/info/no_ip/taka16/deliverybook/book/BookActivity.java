@@ -10,7 +10,7 @@ import android.widget.Button;
 
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
-import info.no_ip.taka16.deliverybook.register_activity.FrameFormActivity;
+import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
 import info.no_ip.taka16.deliverybook.simple_recyclerview.FrameListActivity;
 
 public class BookActivity extends Activity {

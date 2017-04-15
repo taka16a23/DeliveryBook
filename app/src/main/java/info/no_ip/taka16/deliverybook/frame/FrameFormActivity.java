@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook.register_activity;
+package info.no_ip.taka16.deliverybook.frame;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,6 @@ import android.widget.Toast;
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.book.BookRepository;
-import info.no_ip.taka16.deliverybook.frame.Frame;
-import info.no_ip.taka16.deliverybook.frame.FrameRepository;
 
 
 public class FrameFormActivity extends Activity {
