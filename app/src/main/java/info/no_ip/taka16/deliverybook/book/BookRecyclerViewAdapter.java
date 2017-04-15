@@ -21,8 +21,8 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
 
         public ViewHolder(View v) {
             super(v);
-            textView = (TextView)v.findViewById(R.id.line_subscriber_name);
-            handleView = (ImageView)v.findViewById(R.id.line_handle);
+            textView = (TextView)v.findViewById(R.id.item_name);
+            handleView = (ImageView)v.findViewById(R.id.item_handle);
         }
 
         public void onItemSelected() {

@@ -7,7 +7,7 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/line_subscriber_name"
+        android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
@@ -17,7 +17,7 @@
         android:textSize="24sp" />
 
     <ImageView
-        android:id="@+id/line_handle"
+        android:id="@+id/item_handle"
         android:layout_width="52dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right|center"
