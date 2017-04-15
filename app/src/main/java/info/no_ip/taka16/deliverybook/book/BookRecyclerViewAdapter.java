@@ -21,8 +21,8 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
 
         public ViewHolder(View v) {
             super(v);
-            textView = (TextView)v.findViewById(R.id.line_subscriber_name2);
-            handleView = (ImageView)v.findViewById(R.id.line_handle2);
+            textView = (TextView)v.findViewById(R.id.line_subscriber_name);
+            handleView = (ImageView)v.findViewById(R.id.line_handle);
         }
 
         public void onItemSelected() {
@@ -40,7 +40,7 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_frames, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_item, parent, false);
         return new ViewHolder(view);
     }
 
