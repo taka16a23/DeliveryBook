@@ -21,15 +21,16 @@
     android:layout_alignParentTop="true"
     />
 
-<android.support.design.widget.FloatingActionButton
-    android:id="@+id/fab_add_book"
-    android:layout_width="47dp"
-    android:layout_height="47dp"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginBottom="16dp"
-    android:layout_marginRight="16dp"
-    android:clickable="true"
-    android:src="@drawable/ic_add_circle_black_24dp"
-    app:elevation="4dp" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add_book"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_circle_black_24dp"
+        app:elevation="4dp"
+        app:fabSize="normal" />
 </RelativeLayout>
