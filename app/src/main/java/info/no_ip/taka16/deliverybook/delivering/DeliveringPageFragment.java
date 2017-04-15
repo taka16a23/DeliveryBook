@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import info.no_ip.taka16.deliverybook.R;
@@ -63,11 +64,22 @@ public class DeliveringPageFragment extends Fragment implements View.OnClickList
         // Set the title view to show the page number.
         ((TextView) rootView.findViewById(R.id.delivering_position)).setText(mPosition.toString());
         ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
-        // Set address
+        // Set address to view
         ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));
-
         addressView = (TextView)rootView.findViewById(R.id.display_address);
         addressView.setOnClickListener(this);
+        // implement onClick to address image view
+        ImageView addressIconView = (ImageView)rootView.findViewById(R.id.address_icon);
+        addressIconView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String addressText = addressView.getText().toString();
+                Uri gmmIntentUri = Uri.parse("http://maps.google.co.jp/maps?q=" + addressText);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                startActivity(mapIntent);
+            }
+        });
+
         return rootView;
     }
 
