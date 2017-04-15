@@ -33,7 +33,6 @@ public class BookAdditionActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), areaName + " " + getResources().getString(R.string.edit_save_notifier), Toast.LENGTH_SHORT).show();
                 }
                 areaNameForm.setText(""); // clear edit form
-
             }
         });
     }

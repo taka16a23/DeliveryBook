@@ -17,6 +17,7 @@ public class Root {
         this.areaName = areaName;
         this.root = root;
         reStoreRoot();
+        storeRoot();
     }
 
     public Root(Context context, String areaName){

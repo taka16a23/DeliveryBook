@@ -3,17 +3,21 @@ package info.no_ip.taka16.deliverybook.book;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import info.no_ip.taka16.deliverybook.R;
 
 
-public class BookListActivity extends ListActivity {
+public class BookListActivity extends AppCompatActivity {
 
     private ArrayList<String> areaNames;
 
@@ -28,14 +32,28 @@ public class BookListActivity extends ListActivity {
             areaNames.add(book.getAreaName());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, areaNames);
-        setListAdapter(adapter);
-    }
+        ListView listView = (ListView)findViewById(R.id.listview_books);
+        listView.setAdapter(adapter);
 
-    @Override
-    protected void onListItemClick(ListView listView, View view, int position, long id){
-        Log.d("debug", this.areaNames.get(position));
-        Intent intent = new Intent(this, BookActivity.class);
-        intent.putExtra(BookActivity.AREA_NAME_INTENT_KEY, this.areaNames.get(position));
-        startActivity(intent);
+        // action for click item
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Intent intent = new Intent(view.getContext(), BookActivity.class);
+                intent.putExtra(BookActivity.AREA_NAME_INTENT_KEY, areaNames.get(position));
+                startActivity(intent);
+            }
+        });
+
+        // FAB for add
+        FloatingActionButton floatingActionButton = (FloatingActionButton)findViewById(R.id.fab_add_book);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), BookAdditionActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

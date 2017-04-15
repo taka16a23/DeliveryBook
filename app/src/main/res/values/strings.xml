@@ -27,6 +27,7 @@
     <string name="list_frames">List Frames</string>
     <string name="area_name">AreaName</string>
     <string name="save">Save</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 
 </resources>
