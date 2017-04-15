@@ -16,6 +16,12 @@ public class RootRepository {
     }
 
     public Root getRoot(String areaName){
+        if(areaName == null){
+            throw new NullPointerException();
+        }
+        if(areaName.equals("")){
+            throw new IllegalArgumentException();
+        }
         return new Root(context, areaName);
     }
 

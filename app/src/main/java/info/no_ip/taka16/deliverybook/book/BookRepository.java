@@ -24,6 +24,12 @@ public class BookRepository {
     }
 
     public Book getBook(String areaName){
+        if(areaName == null){
+            throw new NullPointerException();
+        }
+        if(areaName.equals("")){
+            throw new IllegalArgumentException();
+        }
         Root root = rootRepository.getRoot(areaName);
         return new Book(context, root);
     }
