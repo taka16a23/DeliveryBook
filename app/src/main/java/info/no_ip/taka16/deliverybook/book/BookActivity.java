@@ -1,14 +1,14 @@
 package info.no_ip.taka16.deliverybook.book;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import info.no_ip.taka16.deliverybook.R;
 
-public class BookActivity extends AppCompatActivity {
+public class BookActivity extends Activity {
     public static final String AREA_NAME_INTENT_KEY = "AREA_NAME_INTENT_KEY";
 
     @Override

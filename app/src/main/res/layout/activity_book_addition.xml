@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.no_ip.taka16.deliverybook.book.BookAdditionActivity">
+
+    <EditText
+        android:id="@+id/edit_area_name"
+        android:layout_width="304dp"
+        android:layout_height="35dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="AreaName"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="35dp"
+        tools:text="@string/area_name" />
+
+    <Button
+        android:id="@+id/area_save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="88dp"
+        tools:text="@string/save" />
+</android.support.constraint.ConstraintLayout>

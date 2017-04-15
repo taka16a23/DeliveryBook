@@ -35,7 +35,8 @@
             android:name=".simple_recyclerview.FrameListActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".book.BookActivity" />
-        <activity android:name=".book.BookListActivity"></activity>
+        <activity android:name=".book.BookListActivity" />
+        <activity android:name=".book.BookAdditionActivity"></activity>
     </application>
 
 </manifest>
