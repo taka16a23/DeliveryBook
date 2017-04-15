@@ -10,7 +10,7 @@ import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.book.BookRepository;
 import info.no_ip.taka16.deliverybook.simple_recyclerview.SimpleItemTouchHelperCallback;
-import info.no_ip.taka16.deliverybook.simple_recyclerview.SimpleRecyclerViewAdapter;
+import info.no_ip.taka16.deliverybook.book.BookRecyclerViewAdapter;
 
 
 public class FrameListActivity extends Activity {
@@ -39,7 +39,7 @@ public class FrameListActivity extends Activity {
         BookRepository bookRepository = new BookRepository(this);
         Book book = bookRepository.getBook(areaName);
 
-        SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(book);
+        BookRecyclerViewAdapter adapter = new BookRecyclerViewAdapter(book);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper itemDecor = new ItemTouchHelper(new SimpleItemTouchHelperCallback(adapter));

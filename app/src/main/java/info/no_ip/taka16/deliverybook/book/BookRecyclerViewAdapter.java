@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook.simple_recyclerview;
+package info.no_ip.taka16.deliverybook.book;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -9,10 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import info.no_ip.taka16.deliverybook.R;
-import info.no_ip.taka16.deliverybook.book.Book;
 
 
-public class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder> {
+public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerViewAdapter.ViewHolder> {
     private Book book;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -35,7 +34,7 @@ public class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<SimpleRecycl
         }
     }
 
-    public SimpleRecyclerViewAdapter(Book book){
+    public BookRecyclerViewAdapter(Book book){
         this.book = book;
     }
 

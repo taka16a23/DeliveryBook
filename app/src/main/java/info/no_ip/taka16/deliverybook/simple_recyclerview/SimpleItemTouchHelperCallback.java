@@ -4,11 +4,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
+import info.no_ip.taka16.deliverybook.book.BookRecyclerViewAdapter;
+
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
-    SimpleRecyclerViewAdapter mAdapter;
+    BookRecyclerViewAdapter mAdapter;
 
-    public SimpleItemTouchHelperCallback(SimpleRecyclerViewAdapter adapter){
+    public SimpleItemTouchHelperCallback(BookRecyclerViewAdapter adapter){
         mAdapter = adapter;
     }
 
@@ -41,7 +43,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-            SimpleRecyclerViewAdapter.ViewHolder recyclerViewHolder = (SimpleRecyclerViewAdapter.ViewHolder) viewHolder;
+            BookRecyclerViewAdapter.ViewHolder recyclerViewHolder = (BookRecyclerViewAdapter.ViewHolder) viewHolder;
             recyclerViewHolder.onItemSelected();
         }
         super.onSelectedChanged(viewHolder, actionState);
@@ -51,9 +53,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
 
-        if (viewHolder instanceof SimpleRecyclerViewAdapter.ViewHolder) {
+        if (viewHolder instanceof BookRecyclerViewAdapter.ViewHolder) {
             // Tell the view holder it's time to restore the idle state
-            SimpleRecyclerViewAdapter.ViewHolder itemViewHolder = (SimpleRecyclerViewAdapter.ViewHolder) viewHolder;
+            BookRecyclerViewAdapter.ViewHolder itemViewHolder = (BookRecyclerViewAdapter.ViewHolder) viewHolder;
             itemViewHolder.onItemClear();
         }
     }
