@@ -30,7 +30,7 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".simple_recyclerview.FrameListActivity"
+            android:name=".frame.FrameListActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".book.BookActivity" />
         <activity

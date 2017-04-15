@@ -11,7 +11,7 @@ import android.widget.ListView;
 import info.no_ip.taka16.deliverybook.book.BookListActivity;
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
-import info.no_ip.taka16.deliverybook.simple_recyclerview.FrameListActivity;
+import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
 
 
 public class MainActivity extends ListActivity {

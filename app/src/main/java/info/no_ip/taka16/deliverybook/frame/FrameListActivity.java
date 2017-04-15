@@ -1,4 +1,4 @@
-package info.no_ip.taka16.deliverybook.simple_recyclerview;
+package info.no_ip.taka16.deliverybook.frame;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.book.BookRepository;
+import info.no_ip.taka16.deliverybook.simple_recyclerview.SimpleItemTouchHelperCallback;
+import info.no_ip.taka16.deliverybook.simple_recyclerview.SimpleRecyclerViewAdapter;
 
 
 public class FrameListActivity extends Activity {

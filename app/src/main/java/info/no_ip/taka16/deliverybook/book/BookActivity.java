@@ -11,7 +11,7 @@ import android.widget.Button;
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
-import info.no_ip.taka16.deliverybook.simple_recyclerview.FrameListActivity;
+import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
 
 public class BookActivity extends Activity {
     public static final String AREA_NAME_INTENT_KEY = "AREA_NAME_INTENT_KEY";
