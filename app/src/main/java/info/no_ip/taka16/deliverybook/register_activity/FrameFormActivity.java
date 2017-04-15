@@ -7,15 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.book.BookRepository;
 import info.no_ip.taka16.deliverybook.frame.Frame;
 import info.no_ip.taka16.deliverybook.frame.FrameRepository;
-import info.no_ip.taka16.deliverybook.root.Root;
-import info.no_ip.taka16.deliverybook.root.RootRepository;
 
 
 public class FrameFormActivity extends Activity {
@@ -25,7 +21,7 @@ public class FrameFormActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_subscriber);
+        setContentView(R.layout.activity_frame_form);
     }
 
     public void onClickFinish(View view) {
