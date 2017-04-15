@@ -28,6 +28,7 @@
     <string name="area_name">AreaName</string>
     <string name="save">Save</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="add_frame">Add Frame</string>
 
 
 </resources>

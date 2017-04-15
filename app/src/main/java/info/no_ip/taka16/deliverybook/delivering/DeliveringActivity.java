@@ -25,6 +25,7 @@ import info.no_ip.taka16.deliverybook.R;
  * @see DeliveringPageFragment
  */
 public class DeliveringActivity extends FragmentActivity {
+    public static final String AREA_NAME_INTENT_KEY = "area_name";
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -36,15 +37,19 @@ public class DeliveringActivity extends FragmentActivity {
      * The pager adapter, which provides the pages to the view pager widget.
      */
     private PagerAdapter mPagerAdapter;
+    private String areaName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivering_page);
 
+        Intent intent = getIntent();
+        this.areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new DeliveringPagerAdapter(this, getFragmentManager());
+        mPagerAdapter = new DeliveringPagerAdapter(this, getFragmentManager(), this.areaName);
         mPager.setAdapter(mPagerAdapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override

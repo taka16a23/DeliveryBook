@@ -1,10 +1,12 @@
 package info.no_ip.taka16.deliverybook.register_activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
@@ -16,12 +18,24 @@ import info.no_ip.taka16.deliverybook.frame.FrameRepository;
 
 public class FrameFormActivity extends Activity {
 
+    public static final String AREA_NAME_INTENT_KEY = "area_name";
+
     private EditText nmView;
+    private String areaName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frame_form);
+
+        Intent intent = getIntent();
+        this.areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
+
+        // title
+        TextView textView = (TextView)findViewById(R.id.frame_form_area_name);
+        textView.setText(this.areaName);
+
     }
 
     public void onClickFinish(View view) {
@@ -35,7 +49,7 @@ public class FrameFormActivity extends Activity {
 
         // save to sql
         BookRepository bookRepository = new BookRepository(this);
-        Book book = bookRepository.getBook("11area");
+        Book book = bookRepository.getBook(this.areaName);
         Frame frame = new Frame();
         frame.setName(name);
         frame.setAddress(address);

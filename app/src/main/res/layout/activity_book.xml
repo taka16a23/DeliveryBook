@@ -45,6 +45,13 @@
             android:text="@string/list_frames" />
 
         <Button
+            android:id="@+id/book_add_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_frame"
+            tools:text="@string/add_frame" />
+
+        <Button
             android:id="@+id/book_start_delivery_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

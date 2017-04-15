@@ -12,6 +12,8 @@ import info.no_ip.taka16.deliverybook.book.BookRepository;
 
 
 public class FrameListActivity extends Activity {
+    public static final String AREA_NAME_INTENT_KEY = "area_name";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,11 @@ public class FrameListActivity extends Activity {
 
         recyclerView.setLayoutManager(layoutManager);
 
+        String areaName = getIntent().getStringExtra(AREA_NAME_INTENT_KEY);
+
         // specify an adapter (see also next example)
         BookRepository bookRepository = new BookRepository(this);
-        Book book = bookRepository.getBook("11area");
+        Book book = bookRepository.getBook(areaName);
 
         SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(book);
         recyclerView.setAdapter(adapter);

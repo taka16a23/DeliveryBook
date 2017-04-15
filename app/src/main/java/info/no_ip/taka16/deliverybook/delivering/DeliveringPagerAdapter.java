@@ -12,11 +12,13 @@ import info.no_ip.taka16.deliverybook.book.BookRepository;
 public class DeliveringPagerAdapter extends FragmentStatePagerAdapter {
     private Context context;
     private Book book;
+    private String areaName;
 
-    public DeliveringPagerAdapter(Context context, FragmentManager fm) {
+    public DeliveringPagerAdapter(Context context, FragmentManager fm, String areaName) {
         super(fm);
         this.context = context;
-        book = (new BookRepository(this.context)).getBook("11area");
+        this.areaName = areaName;
+        book = (new BookRepository(this.context)).getBook(this.areaName);
     }
 
     @Override

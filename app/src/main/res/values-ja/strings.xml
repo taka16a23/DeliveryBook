@@ -26,5 +26,6 @@
     <string name="list_frames">一覧表示</string>
     <string name="area_name">区域名</string>
     <string name="save">保存</string>
+    <string name="add_frame">配達先追加</string>
 
 </resources>
