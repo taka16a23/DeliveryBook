@@ -32,6 +32,7 @@
     <string name="deliverable">deliverable</string>
     <string name="description">description</string>
     <string name="delivery_book">Delivery Book</string>
+    <string name="already_exists">already exists</string>
 
 
 </resources>

@@ -2,6 +2,7 @@ package info.no_ip.taka16.deliverybook.book;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,12 +29,19 @@ public class BookAdditionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText areaNameForm = (EditText)findViewById(R.id.edit_area_name);
                 String areaName = areaNameForm.getText().toString();
+                String textMessage = areaName;
                 if(!mBookRepository.hasBook(areaName)){
                     mBookRepository.getBook(areaName);
-                    Toast.makeText(getBaseContext(), areaName + " " + getResources().getString(R.string.edit_save_notifier), Toast.LENGTH_SHORT).show();
+                    textMessage += " " + getResources().getString(R.string.edit_save_notifier);
+                } else {
+                    textMessage += " " + getResources().getString(R.string.already_exists);
                 }
+                Toast toast = Toast.makeText(getBaseContext(), textMessage, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
                 areaNameForm.setText(""); // clear edit form
             }
         });
     }
+
 }
