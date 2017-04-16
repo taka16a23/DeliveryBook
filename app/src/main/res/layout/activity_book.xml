@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     tools:context="info.no_ip.taka16.deliverybook.book.BookActivity">
 
     <LinearLayout
@@ -11,9 +12,9 @@
         android:layout_height="503dp"
         android:gravity="bottom"
         android:orientation="vertical"
+        android:weightSum="1"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:weightSum="1">
+        tools:layout_editor_absoluteY="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,12 +43,14 @@
             android:id="@+id/book_list_frame_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/list_frames" />
 
         <Button
             android:id="@+id/book_add_frame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/add_frame"
             tools:text="@string/add_frame" />
 
@@ -55,6 +58,7 @@
             android:id="@+id/book_start_delivery_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/start_delivery" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
