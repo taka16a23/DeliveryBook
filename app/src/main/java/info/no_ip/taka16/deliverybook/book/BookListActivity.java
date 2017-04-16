@@ -24,18 +24,8 @@ public class BookListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
 
-        BookRepository bookRepository = new BookRepository(this);
-        areaNames = new ArrayList<String>();
-        for (Book book : bookRepository.listBook()) {
-            if(book != null) {
-                areaNames.add(book.getAreaName());
-            }
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, areaNames);
-        ListView listView = (ListView)findViewById(R.id.listview_books);
-        listView.setAdapter(adapter);
-
         // action for click item
+        ListView listView = (ListView)findViewById(R.id.listview_books);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
@@ -55,5 +45,21 @@ public class BookListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        BookRepository bookRepository = new BookRepository(this);
+        areaNames = new ArrayList<String>();
+        for (Book book : bookRepository.listBook()) {
+            if(book != null) {
+                areaNames.add(book.getAreaName());
+            }
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, areaNames);
+        ListView listView = (ListView)findViewById(R.id.listview_books);
+        listView.setAdapter(adapter);
     }
 }
