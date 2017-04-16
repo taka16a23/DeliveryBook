@@ -24,20 +24,8 @@ public class DeliverableListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliverable_list);
 
-        deliverableNames = new ArrayList<String>();
-        DeliverableRepository deliverableRepository = new DeliverableRepository(this);
-        List<Deliverable> deliverables = deliverableRepository.findAll();
-        if (deliverables != null) {
-            for (Deliverable deliverable : deliverables) {
-                if (deliverable != null) {
-                    deliverableNames.add(deliverable.getName());
-                }
-            }
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, deliverableNames);
+        // on click listener for list item clicked
         ListView listView = (ListView)findViewById(R.id.listview_deliverable);
-        listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,7 +42,23 @@ public class DeliverableListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-
+    @Override
+    protected void onResume(){
+        super.onResume();
+        deliverableNames = new ArrayList<String>();
+        DeliverableRepository deliverableRepository = new DeliverableRepository(this);
+        List<Deliverable> deliverables = deliverableRepository.findAll();
+        if (deliverables != null) {
+            for (Deliverable deliverable : deliverables) {
+                if (deliverable != null) {
+                    deliverableNames.add(deliverable.getName());
+                }
+            }
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, deliverableNames);
+        ListView listView = (ListView)findViewById(R.id.listview_deliverable);
+        listView.setAdapter(adapter);
     }
 }
