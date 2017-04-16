@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -76,7 +77,9 @@ public class FrameFormActivity extends Activity {
         }
 
         Log.d(FrameFormActivity.class.getSimpleName(), " Saved" + name + " " + address);
-        Toast.makeText(this, R.string.edit_save_notifier, Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(this, R.string.edit_save_notifier, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
 
 
     }
