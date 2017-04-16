@@ -26,8 +26,12 @@ public class MainActivity extends ListActivity {
         // TODO: temporary implemented
 
         public Sample(int titleResId, Class activityClass) {
+            this(getResources().getString(titleResId), activityClass);
+        }
+
+        public Sample(String title, Class activityClass){
             this.activityOrFragment = activityClass;
-            this.title = getResources().getString(titleResId);
+            this.title = title;
         }
 
         @Override
@@ -52,11 +56,8 @@ public class MainActivity extends ListActivity {
 
         // Instantiate the list of samples.
         mSamples = new Sample[]{
-                new Sample(R.string.title_start_delivery, DeliveringActivity.class),
-                new Sample(R.string.title_edit_client, FrameFormActivity.class),
-                new Sample(R.string.title_list, FrameListActivity.class),
-                new Sample(R.string.title_list, BookListActivity.class),
-                new Sample(R.string.title_list, DeliverableListActivity.class),
+                new Sample("BookList", BookListActivity.class),
+                new Sample("Deliverable", DeliverableListActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,
