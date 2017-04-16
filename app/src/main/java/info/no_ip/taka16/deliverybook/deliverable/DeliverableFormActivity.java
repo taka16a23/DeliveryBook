@@ -24,12 +24,11 @@ public class DeliverableFormActivity extends AppCompatActivity {
                 EditText deliverableNameForm = (EditText)findViewById(R.id.edittext_deliverable_form_name);
                 String name = deliverableNameForm.getText().toString();
                 DeliverableRepository deliverableRepository = new DeliverableRepository(v.getContext());
-//                Deliverable newDeliverable = deliverableRepository.getDeliverable(name);
                 Deliverable newDeliverable = new Deliverable();
                 newDeliverable.setName(name);
                 deliverableRepository.save(newDeliverable);
                 Toast.makeText(v.getContext(), getString(R.string.save), Toast.LENGTH_SHORT).show();
-                Deliverable tmp = deliverableRepository.getDeliverable(name);
+                deliverableNameForm.setText("");
             }
         });
 
