@@ -31,5 +31,6 @@
     <string name="news_paper_example">○X新聞</string>
     <string name="deliverable">銘柄</string>
     <string name="description">説明</string>
+    <string name="delivery_book">順路帳</string>
 
 </resources>
