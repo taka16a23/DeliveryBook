@@ -23,6 +23,12 @@ public class Frame {
     private Date created;
     @DatabaseField
     private Date lastModified;
+    @DatabaseField
+    private String description;
+
+    // tmp
+    @DatabaseField
+    private String deliverable;
 
     public Frame(){
         this.created = new Date(System.currentTimeMillis());
@@ -82,4 +88,22 @@ public class Frame {
         return lastModified;
     }
 
+    public String getDeliverable(){
+        if(this.deliverable == null){
+            return "";
+        }
+        return this.deliverable;
+    }
+
+    public void setDeliverable(String deliverable){
+        this.deliverable = deliverable;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
 }

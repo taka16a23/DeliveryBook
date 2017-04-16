@@ -31,6 +31,8 @@
     <string name="add_frame">Add Frame</string>
     <string name="Please_input_deliverable">Please input deliverable</string>
     <string name="news_paper_example">Example Paper</string>
+    <string name="deliverable">deliverable</string>
+    <string name="description">description</string>
 
 
 </resources>

@@ -29,5 +29,7 @@
     <string name="add_frame">配達先追加</string>
     <string name="Please_input_deliverable">銘柄を入力してください。</string>
     <string name="news_paper_example">○X新聞</string>
+    <string name="deliverable">銘柄</string>
+    <string name="description">説明</string>
 
 </resources>

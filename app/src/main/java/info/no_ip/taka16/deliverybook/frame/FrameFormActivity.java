@@ -40,10 +40,22 @@ public class FrameFormActivity extends Activity {
         // handle name
         EditText nameView = (EditText) findViewById(R.id.edit_client_name);
         String name = nameView.getText().toString();
+        nameView.setText("");
 
         // handle address
         EditText addressView = (EditText) findViewById(R.id.edit_client_address);
         String address = addressView.getText().toString();
+        addressView.setText("");
+
+        // handle deliverable
+        EditText deliverableView = (EditText)findViewById(R.id.editText_deliverable);
+        String deliverable = deliverableView.getText().toString();
+        deliverableView.setText("");
+
+        // handle description
+        EditText descriptionView = (EditText)findViewById(R.id.editText_description);
+        String description = descriptionView.getText().toString();
+        descriptionView.setText("");
 
         // save to sql
         BookRepository bookRepository = new BookRepository(this);
@@ -51,6 +63,8 @@ public class FrameFormActivity extends Activity {
         Frame frame = new Frame();
         frame.setName(name);
         frame.setAddress(address);
+        frame.setDeliverable(deliverable);
+        frame.setDescription(description);
 
         FrameRepository frameRepository = new FrameRepository(this);
         frameRepository.register(frame);
@@ -64,9 +78,7 @@ public class FrameFormActivity extends Activity {
         Log.d(FrameFormActivity.class.getSimpleName(), " Saved" + name + " " + address);
         Toast.makeText(this, R.string.edit_save_notifier, Toast.LENGTH_SHORT).show();
 
-        // clear form
-        nameView.setText("");
-        addressView.setText("");
+
     }
 
 }

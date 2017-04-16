@@ -32,6 +32,22 @@
         android:inputType="text"
         tools:text="@string/edit_client_address_box" />
 
+    <EditText
+        android:id="@+id/editText_deliverable"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:hint="@string/deliverable"
+        android:inputType="text|textPersonName" />
+
+    <EditText
+        android:id="@+id/editText_description"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:ems="10"
+        android:hint="@string/description"
+        android:inputType="text|textPersonName" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

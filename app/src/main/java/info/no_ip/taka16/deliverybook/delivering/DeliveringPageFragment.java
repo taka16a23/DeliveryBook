@@ -22,6 +22,8 @@ public class DeliveringPageFragment extends Fragment implements View.OnClickList
     public static final String ARG_MAX_PAGE = "maxPosition";
     public static final String ARG_NAME = "name";
     public static final String ARG_ADDRESS = "address";
+    public static final String ARG_DELIVERABLE = "deliverable";
+    public static final String ARG_DESCRIPTION = "description";
 
     private TextView addressView;
     private Position mPosition;
@@ -35,7 +37,8 @@ public class DeliveringPageFragment extends Fragment implements View.OnClickList
         args.putInt(ARG_MAX_PAGE, position.getCurrentPosition());
         args.putString(ARG_NAME, frame.getDisplayName());
         args.putString(ARG_ADDRESS, frame.getDisplayAddress());
-
+        args.putString(ARG_DELIVERABLE, frame.getDeliverable());
+        args.putString(ARG_DESCRIPTION, frame.getDescription());
         fragment.setArguments(args);
         fragment.setPosition(position);
         return fragment;
@@ -63,11 +66,14 @@ public class DeliveringPageFragment extends Fragment implements View.OnClickList
 
         // Set the title view to show the page number.
         ((TextView) rootView.findViewById(R.id.delivering_position)).setText(mPosition.toString());
-        ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString("name"));
+        ((TextView) rootView.findViewById(R.id.display_name)).setText(getArguments().getString(ARG_NAME));
         // Set address to view
-        ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString("address"));
+        ((TextView) rootView.findViewById(R.id.display_address)).setText(getArguments().getString(ARG_ADDRESS));
         addressView = (TextView)rootView.findViewById(R.id.display_address);
         addressView.setOnClickListener(this);
+        // set deliverable
+        ((TextView) rootView.findViewById(R.id.delivering_deliverable)).setText(getArguments().getString(ARG_DELIVERABLE));
+        ((TextView) rootView.findViewById(R.id.delivering_description)).setText(getArguments().getString(ARG_DESCRIPTION));
         // implement onClick to address image view
         ImageView addressIconView = (ImageView)rootView.findViewById(R.id.address_icon);
         addressIconView.setOnClickListener(new View.OnClickListener() {
