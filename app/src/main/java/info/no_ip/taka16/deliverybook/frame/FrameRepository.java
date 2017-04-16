@@ -16,7 +16,7 @@ import info.no_ip.taka16.deliverybook.db.DatabaseHelper;
 public class FrameRepository {
 
     private static final String LOG_TAG = info.no_ip.taka16.deliverybook.frame.Frame.class.getSimpleName();
-    private static Class daoClass = Frame.class;
+    private static final Class daoClass = Frame.class;
 
     private Context context;
     private DatabaseHelper helper;
@@ -36,7 +36,7 @@ public class FrameRepository {
         if(!isOpenedDatabase()){
             this.helper = new DatabaseHelper(context);
         }
-        return helper.getDao(Frame.class);
+        return helper.getDao(FrameRepository.daoClass);
     }
 
     private void closeDatabase(){
