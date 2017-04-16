@@ -17,6 +17,8 @@ public class BookActivity extends Activity {
     public static final String AREA_NAME_INTENT_KEY = "AREA_NAME_INTENT_KEY";
 
     private String areaName;
+    private Book book;
+    private TextView detailView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +28,16 @@ public class BookActivity extends Activity {
         Intent intent = getIntent();
         this.areaName = intent.getStringExtra(BookActivity.AREA_NAME_INTENT_KEY);
         BookRepository bookRepository = new BookRepository(this);
-        Book book = bookRepository.getBook(areaName);
+        this.book = bookRepository.getBook(areaName);
+
         // Set AreaName
         TextView areaNameView = (TextView) findViewById(R.id.book_area_name);
-        areaNameView.setText(book.getAreaName());
-        // Set Detail
-        TextView asa = new TextView(this);
-        String asaString = "朝日:" + String.valueOf(book.size());
-        asa.setText(asaString);
+        areaNameView.setText(this.book.getAreaName());
+
+        // set detail
+        detailView = new TextView(this);
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.book_detail);
-        linearLayout.addView(asa);
+        linearLayout.addView(detailView);
 
         // list frame button
         Button listFrameButton = (Button)findViewById(R.id.book_list_frame_button);
@@ -70,5 +72,16 @@ public class BookActivity extends Activity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        // Set Detail
+        BookRepository bookRepository = new BookRepository(this);
+        this.book = bookRepository.getBook(areaName);
+        String asaString = "朝日:" + String.valueOf(this.book.size());
+        detailView.setText(asaString);
     }
 }
