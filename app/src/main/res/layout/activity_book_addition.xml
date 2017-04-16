@@ -13,22 +13,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:ems="10"
+        android:hint="@string/area_name"
         android:inputType="textPersonName"
-        android:text="AreaName"
         tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="35dp"
-        tools:text="@string/area_name" />
+        tools:layout_editor_absoluteY="35dp" />
 
     <Button
         android:id="@+id/area_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="88dp"
-        tools:text="@string/save"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/edit_area_name"
+        android:layout_alignEnd="@+id/edit_area_name"
         android:layout_alignRight="@+id/edit_area_name"
-        android:layout_alignEnd="@+id/edit_area_name" />
+        android:layout_below="@+id/edit_area_name"
+        android:layout_marginTop="27dp"
+        android:text="@string/save"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="88dp" />
 </RelativeLayout>

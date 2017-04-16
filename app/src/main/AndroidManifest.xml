@@ -34,17 +34,17 @@
         <activity android:name=".book.BookActivity" />
         <activity
             android:name=".book.BookListActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".book.BookAdditionActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".deliverable.DeliverableFormActivity"
-            android:theme="@style/Theme.AppCompat"
+            android:theme="@style/Theme.AppCompat.Light"
             />
         <activity
             android:name=".deliverable.DeliverableListActivity"
-            android:theme="@style/Theme.AppCompat"
+            android:theme="@style/Theme.AppCompat.Light"
             ></activity>
     </application>
 
