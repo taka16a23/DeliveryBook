@@ -27,7 +27,9 @@ public class BookListActivity extends AppCompatActivity {
         BookRepository bookRepository = new BookRepository(this);
         areaNames = new ArrayList<String>();
         for (Book book : bookRepository.listBook()) {
-            areaNames.add(book.getAreaName());
+            if(book != null) {
+                areaNames.add(book.getAreaName());
+            }
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, areaNames);
         ListView listView = (ListView)findViewById(R.id.listview_books);

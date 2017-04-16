@@ -28,19 +28,24 @@
         <activity
             android:name=".frame.FrameFormActivity"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".frame.FrameListActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".book.BookActivity" />
         <activity
             android:name=".book.BookListActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".book.BookAdditionActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".deliverable.DeliverableFormActivity"
             android:theme="@style/Theme.AppCompat"
             />
         <activity
-            android:name=".book.BookAdditionActivity"
+            android:name=".deliverable.DeliverableListActivity"
             android:theme="@style/Theme.AppCompat"
-            />
+            ></activity>
     </application>
 
 </manifest>

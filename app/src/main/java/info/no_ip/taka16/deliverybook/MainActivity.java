@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import info.no_ip.taka16.deliverybook.book.BookListActivity;
+import info.no_ip.taka16.deliverybook.deliverable.DeliverableListActivity;
 import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
@@ -55,6 +56,7 @@ public class MainActivity extends ListActivity {
                 new Sample(R.string.title_edit_client, FrameFormActivity.class),
                 new Sample(R.string.title_list, FrameListActivity.class),
                 new Sample(R.string.title_list, BookListActivity.class),
+                new Sample(R.string.title_list, DeliverableListActivity.class),
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,

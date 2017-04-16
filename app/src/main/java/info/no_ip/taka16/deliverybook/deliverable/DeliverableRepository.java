@@ -35,7 +35,7 @@ public class DeliverableRepository {
         if(!isOpenedDatabase()){
             this.helper = new DatabaseHelper(context);
         }
-        return helper.getDao(DeliverableRepository.daoClass);
+        return helper.getDao(Deliverable.class);
     }
 
     private void closeDatabase(){

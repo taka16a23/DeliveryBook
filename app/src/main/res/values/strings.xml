@@ -29,6 +29,8 @@
     <string name="save">Save</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="add_frame">Add Frame</string>
+    <string name="Please_input_deliverable">Please input deliverable</string>
+    <string name="news_paper_example">Example Paper</string>
 
 
 </resources>

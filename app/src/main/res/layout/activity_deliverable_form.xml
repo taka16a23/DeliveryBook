@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.no_ip.taka16.deliverybook.deliverable.DeliverableFormActivity">
+
+    <TextView
+        android:id="@+id/deliverable_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="34dp"
+        android:textSize="18sp"
+        tools:text="@string/Please_input_deliverable" />
+
+    <EditText
+        android:id="@+id/edittext_deliverable_form_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/deliverable_form_title"
+        android:layout_alignStart="@+id/deliverable_form_title"
+        android:layout_below="@+id/deliverable_form_title"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/news_paper_example"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_deliverable_form_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edittext_deliverable_form_name"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/edittext_deliverable_form_name"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toEndOf="@+id/edittext_deliverable_form_name"
+        android:layout_toRightOf="@+id/edittext_deliverable_form_name"
+        android:text="@string/save" />
+</RelativeLayout>
