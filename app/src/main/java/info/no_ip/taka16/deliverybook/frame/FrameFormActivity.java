@@ -18,10 +18,11 @@ import info.no_ip.taka16.deliverybook.book.BookRepository;
 public class FrameFormActivity extends Activity {
 
     public static final String AREA_NAME_INTENT_KEY = "area_name";
+    public static final String INTENT_KEY_FRAME_ID = "frame_id";
 
     private EditText nmView;
     private String areaName;
-
+    private int frameId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,29 @@ public class FrameFormActivity extends Activity {
         Intent intent = getIntent();
         this.areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
 
+        frameId = intent.getIntExtra(INTENT_KEY_FRAME_ID, -1);
+        if (frameId != -1) {
+            FrameRepository frameRepository = new FrameRepository(this);
+            Frame frame = frameRepository.getFrame(frameId);
+            EditText nameView = (EditText) findViewById(R.id.edit_client_name);
+            nameView.setText(frame.getName());
+
+            // handle address
+            EditText addressView = (EditText) findViewById(R.id.edit_client_address);
+            addressView.setText(frame.getAddress());
+
+            // handle deliverable
+            EditText deliverableView = (EditText)findViewById(R.id.editText_deliverable);
+            deliverableView.setText(frame.getDeliverable());
+
+            // handle description
+            EditText descriptionView = (EditText)findViewById(R.id.editText_description);
+            descriptionView.setText(frame.getDescription());
+        }
+
         // title
         TextView textView = (TextView)findViewById(R.id.frame_form_area_name);
         textView.setText(this.areaName);
-
     }
 
     public void onClickFinish(View view) {
@@ -61,22 +81,24 @@ public class FrameFormActivity extends Activity {
         // save to sql
         BookRepository bookRepository = new BookRepository(this);
         Book book = bookRepository.getBook(this.areaName);
-        Frame frame = new Frame();
+        FrameRepository frameRepository = new FrameRepository(this);
+        Frame frame;
+        if(frameId == -1) {
+            frame = new Frame();
+        } else {
+            frame = frameRepository.getFrame(frameId);
+        }
         frame.setName(name);
         frame.setAddress(address);
         frame.setDeliverable(deliverable);
         frame.setDescription(description);
-
-        FrameRepository frameRepository = new FrameRepository(this);
         frameRepository.register(frame);
-        book.insert(frame);
 
-        for (int i = 0; i < book.size(); i++) {
-            Frame tmpframe = book.getFrame(i);
-            Log.d(FrameFormActivity.class.getSimpleName(), tmpframe.getId() + ":" + tmpframe.getName() + ":" + tmpframe.getAddress());
+        if(frameId == -1) {
+            book.insert(frame);
         }
 
-        Log.d(FrameFormActivity.class.getSimpleName(), " Saved" + name + " " + address);
+        Log.d(FrameFormActivity.class.getSimpleName(), " Saved " + name + " " + address);
         Toast toast = Toast.makeText(this, R.string.edit_save_notifier, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();

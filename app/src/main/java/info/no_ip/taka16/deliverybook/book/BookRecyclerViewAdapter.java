@@ -1,5 +1,6 @@
 package info.no_ip.taka16.deliverybook.book;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
+import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
 
 
 public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerViewAdapter.ViewHolder> {
@@ -16,13 +19,26 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
+        public final Book mBook;
+
         public TextView textView;
         public ImageView handleView;
 
-        public ViewHolder(View v) {
+        public ViewHolder(View v, Book book) {
             super(v);
             textView = (TextView)v.findViewById(R.id.item_name);
             handleView = (ImageView)v.findViewById(R.id.item_handle);
+            mBook = book;
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), FrameFormActivity.class);
+                    intent.putExtra(FrameFormActivity.AREA_NAME_INTENT_KEY, mBook.getAreaName());
+                    intent.putExtra(FrameFormActivity.INTENT_KEY_FRAME_ID, mBook.getFrame(getPosition()).getId());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
 
         public void onItemSelected() {
@@ -41,7 +57,7 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.frame_item, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, this.book);
     }
 
     @Override
