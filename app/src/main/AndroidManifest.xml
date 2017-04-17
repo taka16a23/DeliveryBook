@@ -36,7 +36,7 @@
             android:name=".book.BookListActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".book.BookAdditionActivity"
+            android:name=".book.BookFormActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".deliverable.DeliverableFormActivity"

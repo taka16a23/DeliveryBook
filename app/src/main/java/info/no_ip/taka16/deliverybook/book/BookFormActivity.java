@@ -11,7 +11,7 @@ import android.widget.Toast;
 import info.no_ip.taka16.deliverybook.R;
 
 
-public class BookAdditionActivity extends AppCompatActivity {
+public class BookFormActivity extends AppCompatActivity {
 
     public static final String INTENT_KEY = "addition";
 

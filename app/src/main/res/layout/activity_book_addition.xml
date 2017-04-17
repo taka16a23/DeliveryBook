@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.no_ip.taka16.deliverybook.book.BookAdditionActivity">
+    tools:context="info.no_ip.taka16.deliverybook.book.BookFormActivity">
 
     <EditText
         android:id="@+id/edit_area_name"
