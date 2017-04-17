@@ -81,7 +81,7 @@ public class BookActivity extends Activity {
         // Set Detail
         BookRepository bookRepository = new BookRepository(this);
         this.book = bookRepository.getBook(areaName);
-        String asaString = "朝日:" + String.valueOf(this.book.size());
-        detailView.setText(asaString);
+//        String asaString = "朝日:" + String.valueOf(this.book.size());
+//        detailView.setText(asaString);
     }
 }
