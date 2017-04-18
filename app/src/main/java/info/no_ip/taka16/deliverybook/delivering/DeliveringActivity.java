@@ -42,7 +42,7 @@ public class DeliveringActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delivering_page);
+        setContentView(R.layout.activity_pager);
 
         Intent intent = getIntent();
         this.areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
