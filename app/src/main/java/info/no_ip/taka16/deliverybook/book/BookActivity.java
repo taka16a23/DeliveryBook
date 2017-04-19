@@ -9,18 +9,21 @@ import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
 import info.no_ip.taka16.deliverybook.R;
+import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
+import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
+import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
 
 public class BookActivity extends Activity {
 
@@ -130,6 +133,39 @@ public class BookActivity extends Activity {
             TextView textView = (TextView) rootView.findViewById(R.id.book_areaname);
             textView.setText(this.book.getAreaName());
 //            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            // list frame button
+            Button listFrameButton = (Button)rootView.findViewById(R.id.book_list_frame_button);
+            listFrameButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), FrameListActivity.class);
+                    intent.putExtra(FrameListActivity.AREA_NAME_INTENT_KEY, book.getAreaName());
+                    startActivity(intent);
+                }
+            });
+
+            // add frame button
+            Button addFrameButton = (Button)rootView.findViewById(R.id.book_add_frame);
+            addFrameButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), FrameFormActivity.class);
+                    intent.putExtra(FrameFormActivity.AREA_NAME_INTENT_KEY, book.getAreaName());
+                    startActivity(intent);
+                }
+            });
+
+            // start delivery button
+            Button startDeliveryButton = (Button)rootView.findViewById(R.id.book_start_delivery_button);
+            startDeliveryButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), DeliveringActivity.class);
+                    intent.putExtra(DeliveringActivity.AREA_NAME_INTENT_KEY, book.getAreaName());
+                    startActivity(intent);
+                }
+            });
+
             return rootView;
         }
     }
