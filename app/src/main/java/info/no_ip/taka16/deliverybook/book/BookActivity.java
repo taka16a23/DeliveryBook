@@ -5,9 +5,11 @@ import android.app.Activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +32,8 @@ public class BookActivity extends Activity {
      * may be best to switch to a
      * {@link android.support.v13.app.FragmentStatePagerAdapter}.
      */
+    public static final String AREA_NAME_INTENT_KEY = "area_name";
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -50,6 +54,15 @@ public class BookActivity extends Activity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        Intent intent = getIntent();
+        String areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
+        if (areaName != null){
+            int position = mSectionsPagerAdapter.getPosition(areaName);
+            if (position != -1){
+                mViewPager.setCurrentItem(position);
+            }
+        }
     }
 
     @Override
@@ -157,6 +170,15 @@ public class BookActivity extends Activity {
                     return "SECTION 3";
             }
             return null;
+        }
+
+        public int getPosition(String areaName){
+            for (int i = 0; i < this.books.size(); i++){
+                if (areaName.equals(this.books.get(i).getAreaName())){
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }
