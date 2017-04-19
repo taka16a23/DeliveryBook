@@ -37,7 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="251dp"
             android:layout_weight="1.03"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/book_list_frame_button"
@@ -51,8 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/add_frame"
-            tools:text="@string/add_frame" />
+            android:text="@string/add_frame" />
 
         <Button
             android:id="@+id/book_start_delivery_button"

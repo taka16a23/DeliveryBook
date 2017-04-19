@@ -40,12 +40,13 @@
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".deliverable.DeliverableFormActivity"
-            android:theme="@style/Theme.AppCompat.Light"
-            />
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".deliverable.DeliverableListActivity"
-            android:theme="@style/Theme.AppCompat.Light"
-            ></activity>
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".book.pager.BookActivity"
+            android:label="@string/title_activity_book"></activity>
     </application>
 
 </manifest>
