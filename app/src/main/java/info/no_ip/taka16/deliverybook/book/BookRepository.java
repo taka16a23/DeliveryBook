@@ -34,6 +34,14 @@ public class BookRepository {
         return new Book(context, root);
     }
 
+    public void removeBook(Book book){
+        removeBook(book.getAreaName());
+    }
+
+    public void removeBook(String areaName){
+        rootRepository.removeRoot(areaName);
+    }
+
     public boolean hasBook(String areaName){
         return rootRepository.listAreaNames().contains(areaName);
     }

@@ -93,6 +93,14 @@ public class BookActivity extends Activity {
                 Intent intent = new Intent(this, BookFormActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.action_remove_book:
+                BookRepository bookRepository = new BookRepository(this);
+                int position = mViewPager.getCurrentItem();
+                PlaceholderFragment fragment = (PlaceholderFragment)mSectionsPagerAdapter.getItem(position);
+                bookRepository.removeBook(fragment.getBook());
+                Intent remove_intent = new Intent(this, BookActivity.class);
+                startActivity(remove_intent);
+                break;
         }
 
         int id = item.getItemId();
@@ -139,6 +147,10 @@ public class BookActivity extends Activity {
 
         public void setBook(Book book){
             this.book = book;
+        }
+
+        public Book getBook(){
+            return this.book;
         }
 
         @Override

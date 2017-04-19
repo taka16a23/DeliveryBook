@@ -2,6 +2,8 @@ package info.no_ip.taka16.deliverybook.root;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.io.File;
 import java.util.ArrayList;
 import org.apache.commons.io.FilenameUtils;
@@ -23,6 +25,13 @@ public class RootRepository {
             throw new IllegalArgumentException();
         }
         return new Root(context, areaName);
+    }
+
+    public void removeRoot(String areaName){
+        SharedPreferences prefs = context.getSharedPreferences(areaName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.commit();
     }
 
     public ArrayList<String> listAreaNames(){
