@@ -31,7 +31,6 @@
         <activity
             android:name=".frame.FrameListActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".book.BookActivity" />
         <activity
             android:name=".book.BookListActivity"
             android:theme="@style/Theme.AppCompat.Light" />
@@ -45,7 +44,7 @@
             android:name=".deliverable.DeliverableListActivity"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
-            android:name=".book.pager.BookActivity"
+            android:name=".book.BookActivity"
             android:label="@string/title_activity_book"></activity>
     </application>
 

@@ -6,11 +6,61 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="info.no_ip.taka16.deliverybook.book.pager.BookActivity$PlaceholderFragment">
+    tools:context="info.no_ip.taka16.deliverybook.book.BookActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="503dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_areaname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:gravity="center_vertical|center"
+                android:text="Area Name"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/book_detail"
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+            android:layout_weight="1.03"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/book_list_frame_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/list_frames" />
+
+        <Button
+            android:id="@+id/book_add_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/add_frame" />
+
+        <Button
+            android:id="@+id/book_start_delivery_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/start_delivery" />
+    </LinearLayout>
 </RelativeLayout>
