@@ -47,23 +47,29 @@ public class BookActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book);
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         BookRepository bookRepository = new BookRepository(this);
-        List<Book> books = bookRepository.listBook();
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), books);
+        if (bookRepository.isEmpty()){
+            setContentView(R.layout.activity_book_empty);
+        } else {
+            setContentView(R.layout.activity_book);
+            List<Book> books = bookRepository.listBook();
+            mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), books);
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+            // Set up the ViewPager with the sections adapter.
+            mViewPager = (ViewPager) findViewById(R.id.container);
+            mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        Intent intent = getIntent();
-        String areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
-        if (areaName != null){
-            int position = mSectionsPagerAdapter.getPosition(areaName);
-            if (position != -1){
-                mViewPager.setCurrentItem(position);
+            Intent intent = getIntent();
+            String areaName = intent.getStringExtra(AREA_NAME_INTENT_KEY);
+            if (areaName != null) {
+                int position = mSectionsPagerAdapter.getPosition(areaName);
+                if (position != -1) {
+                    mViewPager.setCurrentItem(position);
+                }
             }
         }
     }
@@ -80,6 +86,15 @@ public class BookActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                break;
+            case R.id.action_add_book:
+                Intent intent = new Intent(this, BookFormActivity.class);
+                startActivity(intent);
+                break;
+        }
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

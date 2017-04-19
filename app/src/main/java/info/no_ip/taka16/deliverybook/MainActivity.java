@@ -56,6 +56,8 @@ public class MainActivity extends ListActivity {
         mSamples = new Sample[]{
                 new Sample("BookList", BookListActivity.class),
                 new Sample("Deliverable", DeliverableListActivity.class),
+                new Sample("Book Activity", BookActivity.class),
+
         };
 
         setListAdapter(new ArrayAdapter<Sample>(this,

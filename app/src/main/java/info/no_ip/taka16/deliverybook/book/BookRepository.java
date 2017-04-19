@@ -53,4 +53,8 @@ public class BookRepository {
     public void deleteAll(){
     }
 
+    public boolean isEmpty(){
+        return listBook().isEmpty();
+    }
+
 }
