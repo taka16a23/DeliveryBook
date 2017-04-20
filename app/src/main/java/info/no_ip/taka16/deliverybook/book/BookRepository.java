@@ -22,7 +22,7 @@ public class BookRepository {
         this.context = context;
         this.rootRepository = new RootRepository(context);
     }
-
+    
     public Book getBook(String areaName){
         if(areaName == null){
             throw new NullPointerException();
