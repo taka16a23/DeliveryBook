@@ -78,6 +78,8 @@ public class BookListActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch(item.getItemId()){
             case R.id.list_book_add:
+                Intent intent = new Intent(this, BookFormActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);
