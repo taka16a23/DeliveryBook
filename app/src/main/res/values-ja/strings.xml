@@ -35,5 +35,6 @@
     <string name="already_exists">既に存在します</string>
     <string name="add_book">追加</string>
     <string name="remove_book">削除</string>
+    <string name="list_book_add">追加</string>
 
 </resources>
