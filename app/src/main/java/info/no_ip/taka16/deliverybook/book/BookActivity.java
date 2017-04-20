@@ -1,14 +1,13 @@
 package info.no_ip.taka16.deliverybook.book;
 
 
-import android.app.Activity;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +24,7 @@ import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
 
-public class BookActivity extends Activity {
+public class BookActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -87,8 +86,6 @@ public class BookActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch(item.getItemId()){
-            case R.id.action_settings:
-                break;
             case R.id.action_add_book:
                 Intent intent = new Intent(this, BookFormActivity.class);
                 startActivity(intent);
@@ -102,14 +99,6 @@ public class BookActivity extends Activity {
                 startActivity(remove_intent);
                 break;
         }
-
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

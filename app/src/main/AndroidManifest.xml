@@ -33,19 +33,22 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".book.BookListActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookFormActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".deliverable.DeliverableFormActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".deliverable.DeliverableListActivity"
-            android:theme="@style/Theme.AppCompat.Light" />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookActivity"
-            android:label="@string/title_activity_book"></activity>
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/title_activity_book">
+
+        </activity>
     </application>
 
 </manifest>
