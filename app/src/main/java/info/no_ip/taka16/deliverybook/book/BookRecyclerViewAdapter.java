@@ -1,6 +1,7 @@
 package info.no_ip.taka16.deliverybook.book;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
 
         public TextView textView;
         public ImageView handleView;
+        private ColorStateList textColors;
 
         public ViewHolder(View v, Book book) {
             super(v);
@@ -39,14 +41,17 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<BookRecyclerVi
                     v.getContext().startActivity(intent);
                 }
             });
+            textColors = textView.getTextColors();
         }
 
         public void onItemSelected() {
             itemView.setBackgroundColor(Color.LTGRAY);
+            textView.setTextColor(Color.BLACK);
         }
 
         public void onItemClear() {
             itemView.setBackgroundColor(0);
+            textView.setTextColor(textColors);
         }
     }
 
