@@ -34,5 +34,6 @@
     <string name="delivery_book">順路帳</string>
     <string name="already_exists">既に存在します</string>
     <string name="add_book">区域を追加</string>
+    <string name="list_book_add">追加</string>
 
 </resources>
