@@ -19,7 +19,7 @@
         android:layout_gravity="left|center_vertical"
         android:layout_weight="1.01"
         android:text="None"
-        android:textColor="#00f"
+        android:textColor="?android:attr/textColorLink"
         android:textSize="24sp" />
 
     <ImageView
