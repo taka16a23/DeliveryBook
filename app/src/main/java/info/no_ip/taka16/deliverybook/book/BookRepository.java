@@ -1,8 +1,6 @@
 package info.no_ip.taka16.deliverybook.book;
 
 import android.content.Context;
-import android.util.Log;
-
 
 import java.util.ArrayList;
 import java.util.List;
