@@ -2,7 +2,6 @@ package info.no_ip.taka16.deliverybook.root;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,19 +27,31 @@ public class RootRepository {
     }
 
     public void removeRoot(String areaName){
-        SharedPreferences prefs = context.getSharedPreferences(areaName, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.clear();
-        editor.commit();
+        for (String filename : listAreaNamePrefs()) {
+            if(areaName.equals(FilenameUtils.removeExtension(filename))){
+                File file = new File(context.getApplicationInfo().dataDir + "/" + "shared_prefs/" + filename);
+                if(file.exists()){
+                    file.delete();
+                }
+            }
+        }
     }
 
-    public ArrayList<String> listAreaNames(){
+    private ArrayList<String> listAreaNamePrefs(){
         ArrayList<String> results = new ArrayList<String>();
         File prefsdir = new File(context.getApplicationInfo().dataDir,"shared_prefs");
         if(prefsdir.exists() && prefsdir.isDirectory()){
             for (String prefFileName : prefsdir.list()) {
-                results.add(FilenameUtils.removeExtension(prefFileName));
+                results.add(prefFileName);
             }
+        }
+        return results;
+    }
+
+    public ArrayList<String> listAreaNames(){
+        ArrayList<String> results = new ArrayList<String>();
+        for (String filename : listAreaNamePrefs()) {
+            results.add(FilenameUtils.removeExtension(filename));
         }
         return results;
     }
