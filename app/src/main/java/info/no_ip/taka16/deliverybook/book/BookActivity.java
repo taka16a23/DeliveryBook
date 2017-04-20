@@ -43,6 +43,8 @@ public class BookActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    private BookRepository bookRepository;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class BookActivity extends AppCompatActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        BookRepository bookRepository = new BookRepository(this);
+        bookRepository = new BookRepository(this);
         if (bookRepository.isEmpty()){
             setContentView(R.layout.activity_book_empty);
         } else {
@@ -71,6 +73,13 @@ public class BookActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), bookRepository.listBook());
+        mViewPager.setAdapter(mSectionsPagerAdapter);
     }
 
     @Override
