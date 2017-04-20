@@ -1,14 +1,10 @@
 package info.no_ip.taka16.deliverybook.book;
 
 import android.content.Context;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 import info.no_ip.taka16.deliverybook.frame.Frame;
 import info.no_ip.taka16.deliverybook.frame.FrameRepository;
-import info.no_ip.taka16.deliverybook.root.Root;
+import info.no_ip.taka16.deliverybook.book.root.Root;
 
 
 public class Book {

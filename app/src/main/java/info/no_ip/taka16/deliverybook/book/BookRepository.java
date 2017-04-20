@@ -5,8 +5,8 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-import info.no_ip.taka16.deliverybook.root.Root;
-import info.no_ip.taka16.deliverybook.root.RootRepository;
+import info.no_ip.taka16.deliverybook.book.root.Root;
+import info.no_ip.taka16.deliverybook.book.root.RootRepository;
 
 
 public class BookRepository {
