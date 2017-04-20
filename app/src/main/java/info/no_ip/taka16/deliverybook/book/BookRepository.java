@@ -1,8 +1,6 @@
 package info.no_ip.taka16.deliverybook.book;
 
 import android.content.Context;
-import android.util.Log;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +20,7 @@ public class BookRepository {
         this.context = context;
         this.rootRepository = new RootRepository(context);
     }
-    
+
     public Book getBook(String areaName){
         if(areaName == null){
             throw new NullPointerException();
