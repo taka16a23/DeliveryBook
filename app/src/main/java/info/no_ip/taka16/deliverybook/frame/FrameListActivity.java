@@ -1,11 +1,13 @@
 package info.no_ip.taka16.deliverybook.frame;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
@@ -17,6 +19,7 @@ import info.no_ip.taka16.deliverybook.book.BookRecyclerViewAdapter;
 public class FrameListActivity extends AppCompatActivity {
     public static final String AREA_NAME_INTENT_KEY = "area_name";
 
+    private Book book;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class FrameListActivity extends AppCompatActivity {
 
         // specify an adapter (see also next example)
         BookRepository bookRepository = new BookRepository(this);
-        Book book = bookRepository.getBook(areaName);
+        book = bookRepository.getBook(areaName);
 
         BookRecyclerViewAdapter adapter = new BookRecyclerViewAdapter(book);
         recyclerView.setAdapter(adapter);
@@ -49,5 +52,28 @@ public class FrameListActivity extends AppCompatActivity {
         // set area name to action bar
         setTitle(areaName + " " + getTitle());
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_frame_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch(item.getItemId()){
+            case R.id.action_add_frame:
+                Intent intent = new Intent(this, FrameFormActivity.class);
+                intent.putExtra(FrameFormActivity.AREA_NAME_INTENT_KEY, this.book.getAreaName());
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
 
