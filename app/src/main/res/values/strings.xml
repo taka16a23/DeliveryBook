@@ -33,11 +33,14 @@
     <string name="description">description</string>
     <string name="delivery_book">Delivery Book</string>
     <string name="already_exists">already exists</string>
-    <string name="title_activity_book">BookActivity</string>
+    <string name="title_activity_book">Book</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="add_book">Add Book</string>
     <string name="list_book_add">Add Book</string>
+    <string name="delivery_book_form">Delivery Book Form</string>
+    <string name="list_delivery_book">List Delivery Books</string>
+    <string name="input_frame">Input Frame</string>
 
 
 </resources>

@@ -2,6 +2,7 @@ package info.no_ip.taka16.deliverybook.frame;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -13,7 +14,7 @@ import info.no_ip.taka16.deliverybook.simple_recyclerview.SimpleItemTouchHelperC
 import info.no_ip.taka16.deliverybook.book.BookRecyclerViewAdapter;
 
 
-public class FrameListActivity extends Activity {
+public class FrameListActivity extends AppCompatActivity {
     public static final String AREA_NAME_INTENT_KEY = "area_name";
 
 
@@ -44,6 +45,9 @@ public class FrameListActivity extends Activity {
 
         ItemTouchHelper itemDecor = new ItemTouchHelper(new SimpleItemTouchHelperCallback(adapter));
         itemDecor.attachToRecyclerView(recyclerView);
+
+        // set area name to action bar
+        setTitle(areaName + " " + getTitle());
     }
 }
 

@@ -23,7 +23,7 @@
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>
     <string name="start_delivery">配達開始</string>
-    <string name="list_frames">一覧表示</string>
+    <string name="list_frames">配達先一覧</string>
     <string name="area_name">区域名</string>
     <string name="save">保存</string>
     <string name="add_frame">配達先追加</string>
@@ -36,5 +36,8 @@
     <string name="add_book">追加</string>
     <string name="remove_book">削除</string>
     <string name="list_book_add">追加</string>
+    <string name="delivery_book_form">順路帳入力</string>
+    <string name="list_delivery_book">順路帳一覧</string>
+    <string name="input_frame">配達先入力</string>
 
 </resources>

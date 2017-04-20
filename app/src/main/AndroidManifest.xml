@@ -16,37 +16,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".delivering.DeliveringActivity"
-            android:label="@string/title_screen_slide"
-            android:parentActivityName=".MainActivity"
-            android:uiOptions="splitActionBarWhenNarrow">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
+            android:theme="@style/Theme.AppCompat"
+            />
         <activity
             android:name=".frame.FrameFormActivity"
-            android:parentActivityName=".MainActivity" />
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/input_frame"
+            />
         <activity
             android:name=".frame.FrameListActivity"
-            android:parentActivityName=".MainActivity" />
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/list_frames"
+            />
         <activity
             android:name=".book.BookListActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/list_delivery_book"
+            />
         <activity
             android:name=".book.BookFormActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"
+            android:label="@string/delivery_book_form"
+            />
         <activity
             android:name=".deliverable.DeliverableFormActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"
+            />
         <activity
             android:name=".deliverable.DeliverableListActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"
+            />
         <activity
             android:name=".book.BookActivity"
             android:theme="@style/Theme.AppCompat"
-            android:label="@string/title_activity_book">
+            android:label="@string/app_name"
+            >
 
         </activity>
     </application>

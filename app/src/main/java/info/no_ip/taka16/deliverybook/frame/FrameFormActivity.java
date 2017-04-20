@@ -1,8 +1,8 @@
 package info.no_ip.taka16.deliverybook.frame;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,7 +15,7 @@ import info.no_ip.taka16.deliverybook.book.Book;
 import info.no_ip.taka16.deliverybook.book.BookRepository;
 
 
-public class FrameFormActivity extends Activity {
+public class FrameFormActivity extends AppCompatActivity {
 
     public static final String AREA_NAME_INTENT_KEY = "area_name";
     public static final String INTENT_KEY_FRAME_ID = "frame_id";
@@ -55,6 +55,9 @@ public class FrameFormActivity extends Activity {
         // title
         TextView textView = (TextView)findViewById(R.id.frame_form_area_name);
         textView.setText(this.areaName);
+
+        // set area name to action bar
+        setTitle(this.areaName + " " + getTitle());
     }
 
     public void onClickFinish(View view) {
