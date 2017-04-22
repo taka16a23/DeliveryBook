@@ -16,46 +16,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".delivering.DeliveringActivity"
-            android:theme="@style/Theme.AppCompat"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".frame.FrameFormActivity"
-            android:theme="@style/Theme.AppCompat"
             android:label="@string/input_frame"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".frame.FrameListActivity"
-            android:theme="@style/Theme.AppCompat"
             android:label="@string/list_frames"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookListActivity"
-            android:theme="@style/Theme.AppCompat"
             android:label="@string/list_delivery_book"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookFormActivity"
-            android:theme="@style/Theme.AppCompat"
             android:label="@string/delivery_book_form"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".deliverable.DeliverableFormActivity"
-            android:theme="@style/Theme.AppCompat"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".deliverable.DeliverableListActivity"
-            android:theme="@style/Theme.AppCompat"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookActivity"
-            android:theme="@style/Theme.AppCompat"
             android:label="@string/app_name"
-            >
-
-        </activity>
+            android:theme="@style/Theme.AppCompat"></activity>
     </application>
 
 </manifest>
