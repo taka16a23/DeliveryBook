@@ -2,7 +2,7 @@ package info.no_ip.taka16.deliverybook.book.root;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
+
 
 import java.util.ArrayList;
 
@@ -34,7 +34,6 @@ public class Root {
     }
 
     private void storeRoot(){
-        Log.d("debug", this.root.toString());
         SharedPreferences.Editor edit = context.getSharedPreferences(areaName, Context.MODE_PRIVATE).edit();
         edit.clear();
         edit.putInt("Count", this.root.size());
