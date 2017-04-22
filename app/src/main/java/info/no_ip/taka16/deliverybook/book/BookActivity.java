@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import info.no_ip.taka16.deliverybook.R;
-import info.no_ip.taka16.deliverybook.delivering.DeliveringActivity;
+import info.no_ip.taka16.deliverybook.delivery.DeliveryActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameFormActivity;
 import info.no_ip.taka16.deliverybook.frame.FrameListActivity;
 
@@ -185,8 +185,8 @@ public class BookActivity extends AppCompatActivity {
             startDeliveryButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), DeliveringActivity.class);
-                    intent.putExtra(DeliveringActivity.AREA_NAME_INTENT_KEY, book.getAreaName());
+                    Intent intent = new Intent(v.getContext(), DeliveryActivity.class);
+                    intent.putExtra(DeliveryActivity.AREA_NAME_INTENT_KEY, book.getAreaName());
                     startActivity(intent);
                 }
             });

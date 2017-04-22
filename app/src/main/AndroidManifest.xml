@@ -44,7 +44,12 @@
         <activity
             android:name=".book.BookActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".delivery.DeliveryActivity"
+            android:label="@string/title_activity_delivery"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
     </application>
 
 </manifest>

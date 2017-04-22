@@ -40,5 +40,6 @@
     <string name="list_delivery_book">順路帳一覧</string>
     <string name="input_frame">配達先入力</string>
     <string name="state">状態</string>
+    <string name="title_activity_delivery">順路帳</string>
 
 </resources>

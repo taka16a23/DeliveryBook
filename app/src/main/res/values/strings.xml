@@ -132,6 +132,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="state">State</string>
+    <string name="title_activity_delivery">DeliveryActivity</string>
 
 
 </resources>
