@@ -2,6 +2,7 @@ package info.no_ip.taka16.deliverybook.book.root;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,9 @@ public class Root {
     }
 
     private void storeRoot(){
+        Log.d("debug", this.root.toString());
         SharedPreferences.Editor edit = context.getSharedPreferences(areaName, Context.MODE_PRIVATE).edit();
+        edit.clear();
         edit.putInt("Count", this.root.size());
         int count = 0;
         for (int i: this.root){
@@ -75,13 +78,9 @@ public class Root {
     }
 
     public void move(int fromPos, int toPos){
-        // FIXME: failed move on min fromPos to toPos will not sorted.
-        if (fromPos == toPos ){
+        if (fromPos == toPos){
             return;
-        } else if(toPos < fromPos) {
-            this.root.add(toPos, this.root.remove(fromPos));
-        } else {
-            this.root.add(toPos -1, this.root.remove(fromPos));
         }
+        this.add(toPos, this.root.remove(fromPos));
     };
 }
