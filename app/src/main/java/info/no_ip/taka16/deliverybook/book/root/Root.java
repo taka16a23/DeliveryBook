@@ -41,7 +41,7 @@ public class Root {
         for (int i: this.root){
             edit.putInt("IntValue_" + count++, i);
         }
-        edit.commit();
+        edit.apply();
     }
 
     private void reStoreRoot(){
