@@ -138,6 +138,9 @@
     <string name="moved_notifier">Moved</string>
     <string name="area_name_hint">1area</string>
     <string name="area_name_form">Area Name:</string>
+    <string name="please_add_book">Please Add Book</string>
+    <string name="add_book_button">Add Book</string>
+    <string name="missing_books">Missing Books</string>
 
 
 </resources>

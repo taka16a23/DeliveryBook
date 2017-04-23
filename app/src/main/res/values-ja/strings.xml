@@ -45,5 +45,8 @@
     <string name="moved_notifier">移動しました</string>
     <string name="area_name_hint">1区</string>
     <string name="area_name_form">区域名:</string>
+    <string name="please_add_book">順路帳を追加してください</string>
+    <string name="add_book_button">順路帳を追加する</string>
+    <string name="missing_books">順路帳がありません</string>
 
 </resources>
