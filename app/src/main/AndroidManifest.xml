@@ -32,7 +32,8 @@
         <activity
             android:name=".book.BookListActivity"
             android:label="@string/list_delivery_book"
-            android:theme="@style/Theme.AppCompat" />
+            android:theme="@style/Theme.AppCompat"
+            />
         <activity
             android:name=".book.BookFormActivity"
             android:label="@string/delivery_book_form"

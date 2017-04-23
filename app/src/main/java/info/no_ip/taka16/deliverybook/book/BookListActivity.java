@@ -46,6 +46,13 @@ public class BookListActivity extends AppCompatActivity {
             }
         });
 
+        // if empty books
+        BookRepository bookRepository = new BookRepository(this);
+        if(bookRepository.isEmpty()){
+            Intent intent = new Intent(this, BookFormActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override
@@ -53,6 +60,9 @@ public class BookListActivity extends AppCompatActivity {
         super.onResume();
 
         BookRepository bookRepository = new BookRepository(this);
+        if(bookRepository.isEmpty()){
+            return;
+        }
         areaNames = new ArrayList<String>();
         for (Book book : bookRepository.listBook()) {
             if(book != null) {
