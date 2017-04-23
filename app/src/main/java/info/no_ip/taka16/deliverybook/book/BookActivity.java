@@ -157,7 +157,6 @@ public class BookActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_book, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.book_areaname);
             textView.setText(this.book.getAreaName());
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             // list frame button
             Button listFrameButton = (Button)rootView.findViewById(R.id.book_list_frame_button);
             listFrameButton.setOnClickListener(new View.OnClickListener() {
@@ -216,7 +215,6 @@ public class BookActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return books.size();
         }
 
