@@ -33,7 +33,7 @@
     <string name="description">説明</string>
     <string name="delivery_book">順路帳</string>
     <string name="already_exists">既に存在します</string>
-    <string name="add_book">追加</string>
+    <string name="add_book">順路帳追加</string>
     <string name="remove_book">削除</string>
     <string name="list_book_add">追加</string>
     <string name="delivery_book_form">順路帳入力</string>
@@ -48,5 +48,6 @@
     <string name="please_add_book">順路帳を追加してください</string>
     <string name="add_book_button">順路帳を追加する</string>
     <string name="missing_books">順路帳がありません</string>
+    <string name="developing_book_board">※手板画面開発中</string>
 
 </resources>

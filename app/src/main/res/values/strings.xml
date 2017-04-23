@@ -155,6 +155,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="developing_book_board">Developing Book board</string>
 
 
 </resources>

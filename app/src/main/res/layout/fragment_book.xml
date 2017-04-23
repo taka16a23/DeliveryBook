@@ -26,7 +26,7 @@
                 android:id="@+id/book_areaname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/white"
+                android:background="@color/asa_orange"
                 android:gravity="center_vertical|center"
                 android:text="Area Name"
                 android:textColor="@android:color/black"
@@ -41,27 +41,56 @@
             android:layout_weight="1.03"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/developing_book_board" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/book_list_frame_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/list_frames" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/book_add_frame"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/add_frame" />
+            <Button
+                android:id="@+id/book_list_frame_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/asa_orange"
+                android:drawableTop="@drawable/ic_action_list"
+                android:gravity="center"
+                android:text="@string/list_frames"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/book_start_delivery_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/start_delivery" />
+            <Button
+                android:id="@+id/book_start_delivery_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="1"
+                android:background="@color/asa_orange"
+                android:drawableTop="@drawable/ic_action_start"
+                android:gravity="center"
+                android:text="@string/start_delivery"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/book_add_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/asa_orange"
+                android:drawableTop="@drawable/ic_action_add_frame"
+                android:gravity="center"
+                android:text="@string/add_frame"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
