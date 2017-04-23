@@ -43,5 +43,7 @@
     <string name="title_activity_delivery">順路帳</string>
     <string name="removed_notifier">削除しました</string>
     <string name="moved_notifier">移動しました</string>
+    <string name="area_name_hint">1区</string>
+    <string name="area_name_form">区域名:</string>
 
 </resources>

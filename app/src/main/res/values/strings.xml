@@ -136,6 +136,8 @@
     <string name="saved_notifier">Saved</string>
     <string name="removed_notifier">Removed</string>
     <string name="moved_notifier">Moved</string>
+    <string name="area_name_hint">1area</string>
+    <string name="area_name_form">Area Name:</string>
 
 
 </resources>
