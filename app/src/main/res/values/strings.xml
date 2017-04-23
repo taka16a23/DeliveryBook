@@ -133,6 +133,9 @@
     </string>
     <string name="state">State</string>
     <string name="title_activity_delivery">DeliveryActivity</string>
+    <string name="saved_notifier">Saved</string>
+    <string name="removed_notifier">Removed</string>
+    <string name="moved_notifier">Moved</string>
 
 
 </resources>
