@@ -17,9 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".delivering.DeliveringActivity"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
             android:name=".frame.FrameFormActivity"
             android:label="@string/input_frame"
             android:theme="@style/Theme.AppCompat" />
