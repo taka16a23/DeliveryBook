@@ -20,7 +20,7 @@ public class BookFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_addition);
+        setContentView(R.layout.activity_book_form);
 
         mBookRepository = new BookRepository(this);
         Button saveButton = (Button)findViewById(R.id.area_save_button);
