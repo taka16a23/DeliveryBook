@@ -1,67 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/frame_form_area_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:text="AreaName"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/edit_client_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/edit_client_name_box"
-        android:inputType="text"
-        tools:text="@string/edit_client_name_box" />
-
-    <EditText
-        android:id="@+id/edit_client_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/edit_client_address_box"
-        android:inputType="text"
-        tools:text="@string/edit_client_address_box" />
-
-    <EditText
-        android:id="@+id/editText_deliverable"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:ems="10"
-        android:hint="@string/deliverable"
-        android:inputType="text|textPersonName" />
-
-    <EditText
-        android:id="@+id/editText_description"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:ems="10"
-        android:hint="@string/description"
-        android:inputType="text|textPersonName" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="230dp"
+        android:layout_weight="0.92">
 
-        <Button
-            android:id="@+id/finish_button"
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.92"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="35dp"
-            android:onClick="onClickFinish"
-            android:text="@string/edit_finish_client_button"
-            tools:text="@string/action_finish" />
-    </RelativeLayout>
+            android:elevation="1dp"
+            android:hint="@string/edit_client_name_box"
+            android:theme="@style/EditTextLabel">
+
+            <EditText
+                android:id="@+id/edit_client_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#fd3076"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@android:color/white"
+                android:textColorHint="#fd3076"
+                android:textColorLink="#fd3076" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_client_address_box"
+            android:theme="@style/EditTextLabel">
+
+            <EditText
+                android:id="@+id/edit_client_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#fd3076"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@android:color/white"
+                android:textColorLink="#fd3076" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deliverable"
+            android:theme="@style/EditTextLabel">
+
+            <EditText
+                android:id="@+id/editText_deliverable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#fd3076"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textColor="@android:color/white"
+                android:textColorHint="#fd3076" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/description"
+            android:theme="@style/EditTextLabel">
+
+            <EditText
+                android:id="@+id/editText_description"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:backgroundTint="#fd3076"
+                android:ems="10"
+                android:inputType="text|textMultiLine"
+                android:textColor="@android:color/white"
+                android:textColorHint="#fd3076" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_weight="0.92"
+        android:onClick="onClickFinish"
+        android:text="@string/edit_finish_client_button"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="@string/action_finish" />
+
 </LinearLayout>
