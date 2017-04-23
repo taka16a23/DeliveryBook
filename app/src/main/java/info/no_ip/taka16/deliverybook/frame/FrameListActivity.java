@@ -26,35 +26,36 @@ public class FrameListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frame_list);
 
+        // Make book from Intent's AreaName
+        BookRepository bookRepository = new BookRepository(this);
+        book = bookRepository.getBook(getIntent().getStringExtra(AREA_NAME_INTENT_KEY));
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
+        // Use a linear layout manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-
         recyclerView.setLayoutManager(layoutManager);
-
-        String areaName = getIntent().getStringExtra(AREA_NAME_INTENT_KEY);
-
-        // specify an adapter (see also next example)
-        BookRepository bookRepository = new BookRepository(this);
-        book = bookRepository.getBook(areaName);
 
         BookRecyclerViewAdapter adapter = new BookRecyclerViewAdapter(book);
         recyclerView.setAdapter(adapter);
 
         ItemTouchHelper itemDecor = new ItemTouchHelper(new SimpleItemTouchHelperCallback(adapter));
         itemDecor.attachToRecyclerView(recyclerView);
-
-        // set area name to action bar
-        setTitle(areaName + " " + getTitle());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Set title for action bar
+        setTitle(book.getAreaName() + " " + getTitle());
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_frame_list, menu);
         return true;
@@ -76,4 +77,3 @@ public class FrameListActivity extends AppCompatActivity {
     }
 
 }
-
