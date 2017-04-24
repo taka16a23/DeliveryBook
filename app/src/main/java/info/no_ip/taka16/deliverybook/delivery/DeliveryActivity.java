@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
 import info.no_ip.taka16.deliverybook.book.Book;
@@ -126,9 +127,24 @@ public class DeliveryActivity extends AppCompatActivity {
             // Inflate the layout containing a title and body text.
             View rootView = inflater.inflate(R.layout.fragment_delivery, container, false);
 
+            // set deliverable
+            TextView deliverableView = (TextView) rootView.findViewById(R.id.delivery_deliverable);
+            deliverableView.setText(frame.getDeliverable());
+
             // Set the title view to show the page number.
             ((TextView) rootView.findViewById(R.id.delivery_position)).setText(mPosition.toString());
-            ((TextView) rootView.findViewById(R.id.display_name)).setText(frame.getDisplayName());
+            TextView displayName = (TextView)rootView.findViewById(R.id.display_name);
+            displayName.setText(frame.getDisplayName());
+            if(frame.getDeliverable().contains("毎日")){
+                displayName.setBackgroundColor(getResources().getColor(R.color.mai_name));
+                deliverableView.setBackgroundColor(getResources().getColor(R.color.mai_deliverable));
+            } else if(frame.getDeliverable().contains("朝日")){
+                displayName.setBackgroundColor(getResources().getColor(R.color.asa_name));
+                deliverableView.setBackgroundColor(getResources().getColor(R.color.asa_deliverable));
+            } else if(frame.getDeliverable().contains("産経")){
+                displayName.setBackgroundColor(getResources().getColor(R.color.sankei_name));
+                deliverableView.setBackgroundColor(getResources().getColor(R.color.sankei_deliverable));
+            }
 
             // Set address to view
             ((TextView) rootView.findViewById(R.id.display_address)).setText(frame.getDisplayAddress());
@@ -143,8 +159,7 @@ public class DeliveryActivity extends AppCompatActivity {
                 }
             });
 
-            // set deliverable
-            ((TextView) rootView.findViewById(R.id.delivery_deliverable)).setText(frame.getDeliverable());
+            // description
             ((TextView) rootView.findViewById(R.id.delivery_description)).setText(frame.getDescription());
 
             // implement onClick to address image view

@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="asa_orange">#fd9901</color>
     <color name="editTextHintColor">#fd3076</color>
+    <color name="mai_deliverable">#2195F2</color>
+    <color name="mai_name">#1976D1</color>
+    <color name="asa_deliverable">#fd9701</color>
+    <color name="asa_name">#f47c01</color>
+    <color name="sankei_deliverable">#673AB6</color>
+    <color name="sankei_name">#512DA7</color>
 </resources>
