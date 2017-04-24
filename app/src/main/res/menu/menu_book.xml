@@ -8,7 +8,11 @@
         android:showAsAction="never"
         android:title="@string/add_book" />
     <item
-        android:id="@+id/action_remove_book"
+        android:id="@+id/action_list_book"
         android:orderInCategory="101"
+        android:title="@string/list_book" />
+    <item
+        android:id="@+id/action_remove_book"
+        android:orderInCategory="102"
         android:title="@string/remove_book" />
 </menu>

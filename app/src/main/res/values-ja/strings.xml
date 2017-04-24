@@ -49,5 +49,6 @@
     <string name="add_book_button">順路帳を追加する</string>
     <string name="missing_books">順路帳がありません</string>
     <string name="developing_book_board">※手板画面開発中</string>
+    <string name="list_book">順路帳一覧</string>
 
 </resources>

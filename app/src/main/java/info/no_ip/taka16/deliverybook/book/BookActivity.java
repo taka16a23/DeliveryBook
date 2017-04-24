@@ -104,6 +104,10 @@ public class BookActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, BookFormActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.action_list_book:
+                Intent intent2 = new Intent(this, BookListActivity.class);
+                startActivity(intent2);
+                break;
             case R.id.action_remove_book:
                 BookRepository bookRepository = new BookRepository(this);
                 int position = mViewPager.getCurrentItem();
