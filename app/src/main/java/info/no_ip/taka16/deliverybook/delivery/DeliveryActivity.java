@@ -144,6 +144,9 @@ public class DeliveryActivity extends AppCompatActivity {
             } else if(frame.getDeliverable().contains("産経")){
                 displayName.setBackgroundColor(getResources().getColor(R.color.sankei_name));
                 deliverableView.setBackgroundColor(getResources().getColor(R.color.sankei_deliverable));
+            } else if(frame.getDeliverable().contains("読売")){
+                displayName.setBackgroundColor(getResources().getColor(R.color.yomi_name));
+                deliverableView.setBackgroundColor(getResources().getColor(R.color.yomi_deliverable));
             }
 
             // Set address to view

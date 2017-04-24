@@ -11,4 +11,6 @@
     <color name="asa_name">#f47c01</color>
     <color name="sankei_deliverable">#673AB6</color>
     <color name="sankei_name">#512DA7</color>
+    <color name="yomi_deliverable">#C2185B</color>
+    <color name="yomi_name">#E91E63</color>
 </resources>
