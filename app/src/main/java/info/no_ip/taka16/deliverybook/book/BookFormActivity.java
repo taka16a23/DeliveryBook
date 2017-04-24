@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import info.no_ip.taka16.deliverybook.R;
@@ -42,6 +43,12 @@ public class BookFormActivity extends AppCompatActivity {
                 areaNameForm.setText(""); // clear edit form
             }
         });
+
+        if(mBookRepository.isEmpty()){
+            ((TextView)findViewById(R.id.missing_book_prompt1)).setVisibility(View.VISIBLE);
+            ((TextView)findViewById(R.id.missing_book_prompt2)).setVisibility(View.VISIBLE);
+        }
+
     }
 
 }

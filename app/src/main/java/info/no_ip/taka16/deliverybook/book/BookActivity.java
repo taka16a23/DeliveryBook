@@ -8,6 +8,7 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,10 +54,7 @@ public class BookActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         bookRepository = new BookRepository(this);
-        if (bookRepository.isEmpty()){
-            setContentView(R.layout.activity_book_empty);
-        } else {
-            setContentView(R.layout.activity_book);
+        setContentView(R.layout.activity_book);
             List<Book> books = bookRepository.listBook();
             mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), books);
 
@@ -72,14 +70,21 @@ public class BookActivity extends AppCompatActivity {
                     mViewPager.setCurrentItem(position);
                 }
             }
-        }
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), bookRepository.listBook());
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        bookRepository = new BookRepository(this);
+
+        if(bookRepository.isEmpty()){
+            Intent intent = new Intent(this, BookFormActivity.class);
+            startActivity(intent);
+        } else {
+            mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager(), bookRepository.listBook());
+            mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        }
     }
 
     @Override

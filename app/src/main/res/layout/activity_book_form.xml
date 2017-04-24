@@ -4,25 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     tools:context="info.no_ip.taka16.deliverybook.book.BookFormActivity">
 
+    <TextView
+        android:id="@+id/missing_book_prompt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/please_add_book"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        android:layout_above="@+id/textInputLayout2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/missing_book_prompt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/missing_book_prompt2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:text="@string/missing_books"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="1dp"
         android:hint="@string/area_name"
-        android:id="@+id/textInputLayout2"
-        android:theme="@style/EditTextLabel">
+        android:theme="@style/EditTextLabel"
+        android:layout_above="@+id/area_save_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <EditText
             android:id="@+id/edit_area_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/area_save_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="24dp"
+            android:layout_weight="1"
             android:backgroundTint="#fd3076"
             android:ems="10"
             android:inputType="text"
@@ -38,10 +65,10 @@
         android:id="@+id/area_save_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textInputLayout2"
-        android:layout_marginTop="21dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="158dp"
         android:text="@string/save"
         android:textColor="@android:color/white"
         android:textStyle="bold"
