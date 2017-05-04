@@ -50,5 +50,8 @@
     <string name="missing_books">順路帳がありません</string>
     <string name="developing_book_board">※手板画面開発中</string>
     <string name="list_book">順路帳一覧</string>
+    <string name="title_activity_book">順路帳</string>
+    <string name="title_activity_input">入力</string>
+    <string name="title_activity_scrolling">スクロール</string>
 
 </resources>
