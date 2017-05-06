@@ -63,6 +63,7 @@ public class FrameFormActivity extends AppCompatActivity {
         EditText nameView = (EditText) findViewById(R.id.edit_client_name);
         String name = nameView.getText().toString();
         nameView.setText("");
+        nameView.requestFocus();
 
         // handle address
         EditText addressView = (EditText) findViewById(R.id.edit_client_address);
