@@ -10,11 +10,13 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".book.BookActivity"
@@ -37,8 +39,7 @@
         <activity
             android:name=".book.BookListActivity"
             android:label="@string/list_delivery_book"
-            android:theme="@style/Theme.AppCompat"
-            />
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".book.BookFormActivity"
             android:label="@string/delivery_book_form"
@@ -52,8 +53,8 @@
         <activity
             android:name=".delivery.DeliveryActivity"
             android:label="@string/title_activity_delivery"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
+            android:theme="@style/Theme.AppCompat"></activity>
+        <activity android:name=".DebugDataMakerActivity"></activity>
     </application>
 
 </manifest>

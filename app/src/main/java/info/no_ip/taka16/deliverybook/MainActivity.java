@@ -57,6 +57,7 @@ public class MainActivity extends ListActivity {
                 new Sample("BookList", BookListActivity.class),
                 new Sample("Deliverable", DeliverableListActivity.class),
                 new Sample("Book Activity", BookActivity.class),
+                new Sample("debug data", DebugDataMakerActivity.class),
 
         };
 
@@ -64,8 +65,6 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
                 mSamples));
-        Intent intent = new Intent(this, BookListActivity.class);
-        startActivity(intent);
     }
 
     @Override
