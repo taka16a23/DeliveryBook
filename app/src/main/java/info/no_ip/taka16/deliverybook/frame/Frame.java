@@ -1,13 +1,16 @@
 package info.no_ip.taka16.deliverybook.frame;
 
+import android.support.annotation.NonNull;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+
 
 import java.util.Date;
 
 
 @DatabaseTable(tableName="FrameTable")
-public class Frame {
+public class Frame implements Comparable<Frame> {
 
     @DatabaseField(generatedId = true)
     private Integer id;
@@ -105,5 +108,42 @@ public class Frame {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Frame frame = (Frame) o;
+
+        return id.equals(frame.id);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Frame{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", address='" + address + '\'' +
+                ", displayAddress='" + displayAddress + '\'' +
+                ", created=" + created +
+                ", lastModified=" + lastModified +
+                ", description='" + description + '\'' +
+                ", deliverable='" + deliverable + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Frame o) {
+        if(this == o) return 0;
+        return this.id.compareTo(o.getId());
     }
 }
