@@ -7,10 +7,10 @@ android {
         applicationId "info.no_ip.taka16.deliverybook"
         minSdkVersion 18
         targetSdkVersion 19
-        versionName '0'
+        versionCode 1
+        versionName '0.1'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionNameSuffix 'beta'
-        versionCode 2
     }
     buildTypes {
         release {
